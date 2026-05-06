@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { products } from "../../data/site";
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product }
+  }));
+}
+
+const { product } = Astro.props;
+const related = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+---
+
+<BaseLayout title={`${product.title} | Ochre & Chrome`} description={product.note}>
+  <main class="editorial-page product-page">
+    <header class="oc-nav oc-nav--light">
+      <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
+      <nav aria-label="Primary">
+        <a href="/shop/">Shop</a>
+        <a href="/guides/">Guides</a>
+        <a href="/trend-report/">Trend Report</a>
+        <a href="/journal/">Journal</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
+
+    <section class="product-detail">
+      <div class="product-detail__media">
+        <img src={product.image} alt="" />
+      </div>
+      <div class="product-detail__copy">
+        <p class="oc-kicker">{product.category}</p>
+        <h1>{product.title}</h1>
+        <p>{product.material}</p>
+        <strong>{product.price}</strong>
+        <p>{product.note}</p>
+        {
+          product.partnerUrl ? (
+            <a href={product.partnerUrl} class="partner-button">View at Partner</a>
+          ) : (
+            <span class="partner-button" aria-disabled="true">Partner Link Pending</span>
+          )
+        }
+        <p class="affiliate-note">
+          Affiliate partner destinations are pending. No purchase link is active for this item yet.
+        </p>
+      </div>
+    </section>
+
+    <section class="why-product">
+      <p class="oc-kicker">Why We Chose It</p>
+      <h2>Quiet character, useful proportion, and material presence.</h2>
+      <p>
+        This piece works because it adds depth without demanding the whole room. Use it as a
+        supporting layer alongside warm neutrals, aged brass, natural textures, and collected
+        objects.
+      </p>
+    </section>
+
+    <section class="next-guides product-related">
+      {related.map((item) => (
+        <a href={`/products/${item.slug}/`}>
+          <img src={item.image} alt="" />
+          <span>{item.category}</span>
+          <strong>{item.title}</strong>
+        </a>
+      ))}
+    </section>
+  </main>
+</BaseLayout>

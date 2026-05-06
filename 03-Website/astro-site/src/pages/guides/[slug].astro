@@ -1,0 +1,144 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { guides, products } from "../../data/site";
+
+export function getStaticPaths() {
+  return guides.map((guide) => ({
+    params: { slug: guide.slug },
+    props: { guide }
+  }));
+}
+
+const { guide } = Astro.props;
+const relatedProducts = products.slice(0, 6);
+const guideIndex = guides.findIndex((item) => item.slug === guide.slug);
+const nextGuides = [
+  guides[(guideIndex + 1) % guides.length],
+  guides[(guideIndex + 2) % guides.length]
+];
+const materialStack = [
+  { label: "Linen", note: "Light, breathable, relaxed", color: "#d8c8b2" },
+  { label: "Velvet", note: "Adds depth and softness", color: "#5a3925" },
+  { label: "Marble", note: "Cool, smooth, timeless", color: "#d9d0c3" },
+  { label: "Jute", note: "Natural texture and warmth", color: "#a88962" },
+  { label: "Aged Brass", note: "Brings patina and glow", color: "#b08a42" }
+];
+---
+
+<BaseLayout title={`${guide.title} | Ochre & Chrome`} description={guide.dek}>
+  <main class={`editorial-page guide-detail guide-detail--${guide.slug}`}>
+    <header class="oc-nav oc-nav--light">
+      <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
+      <nav aria-label="Primary">
+        <a href="/shop/">Shop</a>
+        <a href="/guides/" aria-current="page">Guides</a>
+        <a href="/trend-report/">Trend Report</a>
+        <a href="/journal/">Journal</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
+
+    <section class="article-hero">
+      <div class="article-hero__copy">
+        <p class="oc-kicker">Guide</p>
+        <h1>{guide.title}</h1>
+        <p>{guide.dek}</p>
+      </div>
+      <img src={guide.heroImage} alt="" />
+    </section>
+
+    <div class="article-shell">
+      <aside class="article-sidebar">
+        <div>
+          <p class="oc-kicker">On This Page</p>
+          {guide.sections.map((section) => (
+            <a href={`#${section.title.toLowerCase().replaceAll(" ", "-")}`}>{section.title}</a>
+          ))}
+          <a href="#shop-the-layer">Shop the Layer</a>
+        </div>
+      </aside>
+
+      <article class="article-body">
+        <section class="article-intro">
+          <p>
+            Great interiors are built through restraint, rhythm, and repetition. This preview gives
+            you the principles, while the full guide turns them into room-by-room formulas,
+            checklists, and shoppable direction.
+          </p>
+          <blockquote>
+            Add with intention, leave breathing room, and let the best pieces shine.
+          </blockquote>
+        </section>
+
+        {guide.sections.map((section, index) => (
+          <section class={`article-section ${index === 0 ? "article-section--swatches" : ""}`} id={section.title.toLowerCase().replaceAll(" ", "-")}>
+            <div>
+              <p class="article-number">{section.kicker}</p>
+              <h2>{section.title}</h2>
+              {index === 0 && <p class="article-section__note">Light, breathable, relaxed.</p>}
+              <p>{section.body}</p>
+              {
+                index === 0 ? (
+                  <div class="material-stack">
+                    {materialStack.map((item) => (
+                      <div>
+                        <span style={`--swatch:${item.color}`}></span>
+                        <strong>{item.label}</strong>
+                        <small>{item.note}</small>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <ul>
+                    {section.bullets.map((bullet) => <li>{bullet}</li>)}
+                  </ul>
+                )
+              }
+            </div>
+            {index === 0 ? <blockquote>Layering is the art of editing. Add with intention, leave breathing room, and let the best pieces shine.</blockquote> : <img src={section.image} alt="" />}
+          </section>
+        ))}
+
+        <section class="palette-panel">
+          <div>
+            <p class="oc-kicker">Color & Material Palette</p>
+            <p>A visible range of tones and finishes for this guide.</p>
+          </div>
+          <div class="swatches">
+            {guide.palette.map((color) => <span style={`--swatch:${color}`}></span>)}
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <section class="shop-layer" id="shop-the-layer">
+      <div class="shop-layer__heading">
+        <h2>{guide.slug === "afrohemian-rooms-with-soul" ? "Shop the Soulful Layer" : "Shop the Layer"}</h2>
+        <a href="/shop/" class="text-link">View all picks</a>
+      </div>
+      <div class="shop-layer__grid">
+        {relatedProducts.map((product) => (
+          <article>
+            <img src={product.image} alt="" />
+            <h3>{product.title}</h3>
+            <p>{product.material}</p>
+            <a href={`/products/${product.slug}/`} class="partner-button">View Details</a>
+          </article>
+        ))}
+      </div>
+      <p class="affiliate-note">Partner links may support our work. We only recommend what we would style ourselves.</p>
+    </section>
+
+    <section class="next-guides">
+      {nextGuides.map((nextGuide) => (
+        <a href={`/guides/${nextGuide.slug}/`}>
+          <img src={nextGuide.image} alt="" />
+          <div>
+            <span>Next Guide</span>
+            <strong>{nextGuide.title}</strong>
+          </div>
+        </a>
+      ))}
+    </section>
+  </main>
+</BaseLayout>

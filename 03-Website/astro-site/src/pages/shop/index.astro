@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { products } from "../../data/site";
+
+const categories = ["Furniture", "Lighting", "Decor", "Textiles"];
+const productsByCategory = categories.map((category) => ({
+  category,
+  items: products.filter((product) => product.category === category)
+}));
+---
+
+<BaseLayout
+  title="The Curated Cart | Ochre & Chrome"
+  description="Editor-selected affiliate home pieces for intentional rooms."
+>
+  <main class="editorial-page cart-page">
+    <header class="oc-nav oc-nav--light">
+      <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
+      <nav aria-label="Primary">
+        <a href="/shop/" aria-current="page">Shop</a>
+        <a href="/guides/">Guides</a>
+        <a href="/trend-report/">Trend Report</a>
+        <a href="/journal/">Journal</a>
+        <a href="/about/">About</a>
+      </nav>
+    </header>
+
+    <section class="cart-hero">
+      <div>
+        <h1>The Curated Cart</h1>
+        <p class="cart-dek">Editor-selected pieces for intentional rooms.</p>
+        <p>
+          We source from trusted makers and design partners to help you create a home that feels
+          collected, considered, and timeless.
+        </p>
+      </div>
+      <img src="/ochre-assets/curated-cart-hero.png" alt="" />
+    </section>
+
+    <nav class="cart-tabs" aria-label="Product categories">
+      {categories.map((category) => <a href={`#${category.toLowerCase()}`}>{category}</a>)}
+    </nav>
+
+    <section class="featured-collection">
+      <div>
+        <p class="oc-kicker">Featured Collection</p>
+        <h2>Modern Heritage</h2>
+        <p>A blend of old-world materials and modern silhouettes. These pieces anchor a room with warmth, texture, and quiet character.</p>
+        <a href="/guides/layering-like-a-designer/" class="text-link">Why We Chose It</a>
+      </div>
+      <img src="/homepage-generated-assets-hires/hero-interior.png" alt="" />
+    </section>
+
+    {productsByCategory.map(({ category, items }) => (
+      <section class="product-showroom" id={category.toLowerCase()} aria-label={category}>
+        {items.map((product) => (
+          <article class="commerce-card">
+            <a href={`/products/${product.slug}/`}>
+              <img src={product.image} alt="" />
+            </a>
+            <div>
+              <h3>{product.title}</h3>
+              <p>{product.material}</p>
+              <strong>{product.price}</strong>
+              <a href={`/products/${product.slug}/`} class="partner-button">View Details</a>
+              <a href={`/products/${product.slug}/`} class="why-link">Why We Chose It</a>
+            </div>
+          </article>
+        ))}
+      </section>
+    ))}
+
+    <section class="affiliate-disclosure">
+      <span></span>
+      <div>
+        <h2>Affiliate Disclosure</h2>
+        <p>
+          Partner links may support our work. We only recommend pieces we would actually style and
+          disclose affiliate relationships clearly.
+        </p>
+      </div>
+      <a href="/affiliate-disclosure/">Learn More</a>
+    </section>
+
+    <section class="shop-look">
+      <div>
+        <p class="oc-kicker">Style It Together</p>
+        <h2>Shop the Look</h2>
+        <p>These pieces come together in our Modern Heritage living room. Explore the full guide for layout tips, finishes, and styling notes.</p>
+        <a href="/guides/layering-like-a-designer/" class="button-dark">View the Guide</a>
+      </div>
+      <img src="/homepage-generated-assets-hires/testimonial-vignette.png" alt="" />
+    </section>
+  </main>
+</BaseLayout>

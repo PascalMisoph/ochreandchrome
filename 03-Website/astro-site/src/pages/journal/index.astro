@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("journal")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="The Design Journal | Ochre & Chrome"
+  description="Editorial interior design guides from Ochre & Chrome."
+>
+  <main class="journal-page">
+    <header class="journal-hero">
+      <a href="/" class="journal-back">Ochre &amp; Chrome</a>
+      <span class="eyebrow">The Design Journal</span>
+      <h1>Guides for the intentional home.</h1>
+      <p>
+        Styling rules, material notes, and curated design direction for homes with structure,
+        texture, and soul.
+      </p>
+    </header>
+
+    <section class="journal-list" aria-label="Journal posts">
+      {
+        posts.length > 0 ? (
+          posts.map((post) => (
+            <article class="journal-card">
+              {post.data.image && <img src={post.data.image} alt="" />}
+              <div>
+                {post.data.category && <span class="eyebrow">{post.data.category}</span>}
+                <h2>
+                  <a href={`/journal/${post.slug}/`}>{post.data.title}</a>
+                </h2>
+                <p>{post.data.description}</p>
+              </div>
+            </article>
+          ))
+        ) : (
+          <p class="journal-empty">
+            Journal posts will appear here as Markdown files are added to
+            <code>src/content/journal</code>.
+          </p>
+        )
+      }
+    </section>
+  </main>
+</BaseLayout>

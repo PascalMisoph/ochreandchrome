@@ -1,0 +1,124 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { guideCategories, guides } from "../../data/site";
+
+const featured = guides[0];
+---
+
+<BaseLayout
+  title="Guides for the Intentional Home | Ochre & Chrome"
+  description="Styling rules, material notes, and room-by-room interior design direction from Ochre & Chrome."
+>
+  <main class="editorial-page guides-page">
+    <section class="oc-hero oc-hero--dark guides-hub-hero">
+      <img src="/ochre-assets/guides-hub-hero-exact.png" alt="" class="oc-hero__image" />
+      <div class="oc-hero__shade"></div>
+      <header class="oc-nav oc-nav--overlay guides-hub-nav">
+        <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
+        <nav aria-label="Primary">
+          <a href="/guides/" aria-current="page">Guides</a>
+          <span aria-hidden="true"></span>
+          <button type="button" aria-label="Menu"><i></i></button>
+        </nav>
+      </header>
+      <div class="oc-hero__content">
+        <p class="oc-kicker">Guides</p>
+        <h1>Guides for the Intentional Home</h1>
+        <p>Styling rules, material notes, and room-by-room direction.</p>
+        <div class="filter-row" aria-label="Guide categories">
+          {guideCategories.map((category, index) => (
+            <a class={index === 0 ? "is-active" : ""} href="#guide-grid">{category}</a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-guide">
+      <div class="vertical-mark">
+        <span>O<br />&amp;<br />C</span>
+      </div>
+      <div class="featured-guide__copy">
+        <p class="oc-kicker">Featured Guide</p>
+        <h2>{featured.title}</h2>
+        <p>{featured.dek} Learn how to build balance, story, and polish without overdecorating.</p>
+        <a href={`/guides/${featured.slug}/`} class="text-link">Explore the Guide</a>
+      </div>
+      <a href={`/guides/${featured.slug}/`} class="featured-guide__media">
+        <img src="/ochre-assets/guides-hub-featured-exact.png" alt="" />
+      </a>
+    </section>
+
+    <section class="guide-index" id="guide-grid">
+      <div class="section-title-line">
+        <h2>Guides</h2>
+        <span></span>
+      </div>
+      <div class="guide-index__grid">
+        {guides.map((guide) => (
+          <article class="guide-tile">
+            <a href={`/guides/${guide.slug}/`}>
+              <img src={guide.image} alt="" />
+              <p class="oc-kicker">{guide.category}</p>
+              <h3>{guide.title}</h3>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="principles-strip" aria-label="Design principles">
+      <p class="oc-kicker">Design Principles</p>
+      <div>
+        <span>Intentional over impulse</span>
+        <span>Materials with integrity</span>
+        <span>Balance over symmetry</span>
+        <span>Layered with purpose</span>
+        <span>Timeless not trendy</span>
+      </div>
+    </section>
+
+    <section class="newsletter-panel">
+      <img src="/ochre-assets/guides-hub-newsletter-exact.png" alt="" />
+      <div>
+        <h2>Design inspiration, straight to your inbox.</h2>
+        <p>New guides, design notes, and curated finds for an intentional home.</p>
+        <div class="lead-form" aria-label="Newsletter signup unavailable">
+          <input type="email" value="Newsletter coming soon" aria-label="Newsletter signup unavailable" disabled />
+          <button type="button" disabled>Coming Soon</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="guides-footer">
+      <div>
+        <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
+        <p>Curated home. Considered living.</p>
+      </div>
+      <nav aria-label="Footer">
+        <div>
+          <span>Shop</span>
+          <a href="/shop/">New Arrivals</a>
+          <a href="/shop/">Furniture</a>
+          <a href="/shop/">Decor</a>
+          <a href="/shop/">Lighting</a>
+        </div>
+        <div>
+          <span>Explore</span>
+          <a href="/guides/">Guides</a>
+          <a href="/journal/">Journal</a>
+          <a href="/trend-report/">Materials</a>
+          <a href="/about/">Our Story</a>
+        </div>
+        <div>
+          <span>Info</span>
+          <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/impressum/">Impressum</a>
+          <a href="mailto:hello@ochreandchrome.com">Contact</a>
+        </div>
+      </nav>
+      <span class="footer-seal">O<br />&amp;<br />C</span>
+    </footer>
+  </main>
+</BaseLayout>

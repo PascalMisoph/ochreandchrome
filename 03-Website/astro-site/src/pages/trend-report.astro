@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { materialForecast, trendChapters } from "../data/site";
+---
+
+<BaseLayout
+  title="What's Next in Design | Ochre & Chrome Trend Report"
+  description="A refined interiors forecast covering earth tones, craft, curves, and global influence for Spring / Summer 2026."
+>
+  <main class="editorial-page trend-page">
+    <section class="trend-hero">
+      <img src="/ochre-assets/trend-report-hero-2026.png" alt="" />
+      <div class="trend-hero__shade"></div>
+      <header class="oc-nav oc-nav--overlay">
+        <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
+        <nav aria-label="Primary">
+          <a href="/shop/">Shop</a>
+          <a href="/guides/">Guides</a>
+          <a href="/trend-report/" aria-current="page">Trend Report</a>
+          <a href="/journal/">Journal</a>
+          <a href="/about/">About</a>
+        </nav>
+      </header>
+      <div>
+        <p class="oc-kicker">Trend Report</p>
+        <h1>What's Next in Design</h1>
+        <p>Spring / Summer 2026</p>
+      </div>
+    </section>
+
+    <section class="trend-chapters" aria-label="Trend chapters">
+      {trendChapters.map((chapter, index) => (
+        <article class={`trend-chapter ${index % 2 === 1 ? "is-reversed" : ""}`} id={chapter.slug}>
+          <div class="trend-chapter__copy">
+            <span>{chapter.number}</span>
+            <div>
+              <h2>{chapter.title}</h2>
+              <p>{chapter.body}</p>
+              <a href={`#${chapter.slug}`} class="text-link">Explore the Trend</a>
+            </div>
+          </div>
+          <img src={chapter.image} alt="" />
+        </article>
+      ))}
+    </section>
+
+    <section class="material-forecast" id="material-forecast">
+      <p class="oc-kicker">Material Forecast</p>
+      <div class="material-grid">
+        {materialForecast.map(([label, color]) => (
+          <div>
+            <span style={`--swatch:${color}`}></span>
+            <strong>{label}</strong>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="report-download">
+      <div>
+        <p class="oc-kicker">The Full Report</p>
+        <h2>Deeper insights. More inspiration.</h2>
+        <p>Explore full trend analysis, color palettes, materials, and expert insights for the season ahead.</p>
+        <a href="mailto:hello@ochreandchrome.com?subject=Trend Report" class="gold-button">Request the Report</a>
+      </div>
+      <img src="/homepage-generated-assets-hires/ebook-cover.png" alt="" />
+    </section>
+  </main>
+</BaseLayout>
