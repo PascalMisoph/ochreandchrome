@@ -1,124 +1,58 @@
-# Ochre & Chrome Production Readiness Plan
+# Ochre & Chrome Project Status
 
-Status: P0 launch-readiness pass complete for safe code/content changes; legal owner data still requires human input.
-Scope inspected: `03-Website/astro-site/src`, `public`, Astro build output, major repo content notes.
 Last updated: 2026-05-06.
 
-## Build And Structure Snapshot
+Scope: `03-Website/astro-site`, generated Astro build output, visual QA screenshots, and launch-readiness documentation.
 
-- App: Astro static site in `03-Website/astro-site`.
-- Build status: `npm run build` succeeds and generates 23 static pages.
-- Main routes generated: `/`, `/about/`, `/affiliate-disclosure/`, `/impressum/`, `/guides/`, 4 guide detail pages, `/journal/`, 1 journal post, `/shop/`, `/trend-report/`, `/privacy/`, `/terms/`, and 8 product detail pages.
-- Primary maintainability risk: nearly all visual systems for all pages are concentrated in one large stylesheet.
+## Current Status
 
-## Oversized Files And Components
-
-Explicit oversized or high-risk files:
-
-- `03-Website/astro-site/src/styles/global.css` - 3162 lines. This is unacceptable as the long-term styling surface. It mixes homepage, shared primitives, guide hub, guide detail, shop, product, trend report, journal, legal pages, responsive overrides, page-specific fixes, and repeated media queries.
-
-Large but currently tolerable files to monitor:
-
-- `03-Website/astro-site/src/pages/index.astro` - 352 lines. Homepage owns navigation, product data duplication, footer data, newsletter form, cards, hero, social grid, and footer markup directly.
-- `03-Website/astro-site/src/data/site.ts` - 261 lines. Central data file mixes guides, products, trend chapters, material palettes, affiliate URL state, and content copy.
-- `03-Website/astro-site/src/pages/guides/[slug].astro` - 144 lines. Guide detail template has enough page logic and markup to justify component extraction during the UI pass.
-- `03-Website/astro-site/src/pages/guides/index.astro` - 123 lines. Guide hub footer/navigation and newsletter are duplicated instead of shared.
-
-## Major Issues Found
-
-### Architecture And Maintainability
-
-- Global CSS is the main blocker. It contains unrelated page systems and many page-specific overrides in one file, making any visual fix risky.
-- Shared navigation/footer systems are duplicated across homepage, guide hub, shop, trend report, guide detail, product detail, legal, and journal pages.
-- Homepage duplicates product data instead of using `src/data/site.ts`, causing title/price/material mismatches with product detail pages.
-- Newsletter forms are static UI only: homepage and guide hub forms use `button type="button"` and have no submission action, validation flow, or integration target.
-- Product and guide data are hardcoded in one TypeScript file. This is acceptable for a prototype, but production should move toward typed content collections or smaller domain modules.
-- Root project contains generated screenshots/logs in the Astro site directory, which adds noise and makes source review harder.
-
-### UI, Visual Hierarchy, And Responsiveness
-
-- CSS uses many fixed/min heights and complex grid templates, especially in hero, trend, guide, shop, and product sections. This is likely causing spacing, cropping, and mobile layout fragility.
-- Several sections depend on `object-fit: cover`, fixed aspect ratios, and page-specific `object-position` overrides. Image crops should be reviewed page by page.
-- Mobile rules are scattered across multiple breakpoint blocks rather than organized by page or component.
-- Homepage hero and lead-card composition should be reviewed for mobile first-viewport quality; current CSS includes very tall hero minima and large responsive type.
-- Guide hub, guide detail, shop, product, and trend pages use strong editorial layouts but need a systematic desktop/tablet/mobile screenshot pass before visual changes.
-- Footer and nav styles are inconsistent across pages: homepage has a full footer, guides have a separate custom footer, legal pages have minimal navigation, journal has a separate back-link pattern.
-
-### Content, Legal, And Accuracy
-
-- `src/pages/privacy.astro` now contains safe interim static-site privacy copy, but final legal review is still required.
-- `src/pages/terms.astro` now contains safe interim editorial terms, but final legal review is still required.
-- Legal/info coverage now includes privacy, terms, affiliate disclosure, and impressum. Final launch requirements for contact, accessibility, cookie/privacy detail, shipping, returns, and trade program depend on launch market and business model.
-- `src/pages/about.astro` is only a short interim paragraph and does not support the premium editorial brand position.
-- Homepage and `/trend-report/` now both use `Spring / Summer 2026`.
-- Shipping/returns/trade footer claims have been removed from active UI until real policies exist.
-- Homepage social links now use the verified Pinterest handle and a safe email fallback for Instagram until a verified Instagram URL exists.
-- Product detail `partnerUrl` values are empty until verified partner destinations are supplied; product CTAs now use a safe pending state.
-- Shop and guide listing buttons now use `View Details` when linking to local product pages.
-- Journal has only one content post; homepage says "Latest Styling Guides" but those are hardcoded guide cards, not journal/content collection output.
-
-### Dead Links, Weak Links, And Missing Targets
-
-Confirmed route-level internal links build successfully for the main static routes.
-
-Resolved P0 link issues:
-
-- All sample partner destinations have been removed from `src/data/site.ts`.
-- Homepage footer category links now target real shop anchors.
-- Shop category tabs now target real category sections.
-- Footer links for Shipping, Returns, Trade Program, Careers, and Our Artisans were removed from active UI.
-- Newsletter CTA controls are visibly disabled until a real signup flow exists.
-- Trend report CTA now says `Request the Report` because it opens email rather than a download flow.
-
-## P0 Launch Blocker Resolution
-
-Completed safe P0 fixes:
-
-- Replaced temporary privacy copy with a static-site privacy notice using only verified repo information.
-- Replaced temporary terms copy with limited editorial terms using only verified repo information.
-- Added `/impressum/` with verified contact email and explicit missing-operator-data notice.
-- Added `/affiliate-disclosure/` and linked it from the homepage footer, guide footer, and shop disclosure.
-- Removed all sample partner destinations from source data.
-- Converted product detail partner CTAs without verified URLs into a safe disabled state: "Partner Link Pending".
-- Changed shop and guide product listing CTAs from the old partner wording to "View Details" where they route internally.
-- Fixed homepage trend panel season to match `Spring / Summer 2026`.
-- Replaced misleading homepage footer category anchors with real shop category anchors.
-- Split shop product categories into valid anchored sections: `#furniture`, `#lighting`, `#decor`, `#textiles`.
-- Removed misleading Shipping, Returns, Trade Program, Careers, and Our Artisans footer links from the active site UI.
-- Replaced generic Pinterest link with the verified repo handle route `https://www.pinterest.com/ochreandchrome/`.
-- Replaced generic Instagram link with a mailto fallback because no verified Instagram URL exists in the repo.
-- Disabled newsletter/signup controls and changed their copy to "Newsletter coming soon" / "Coming Soon" so they no longer imply a working signup flow.
-- Changed trend report CTA to "Request the Report" because it currently uses email rather than an automated download flow.
-
-Unresolved P0 items requiring human/legal input before launch:
-
-- Legal operator name for Impressum/terms/privacy.
-- Postal address for Impressum.
-- Responsible person/editor where required by jurisdiction.
-- Business registration details, if applicable.
-- VAT/tax identification details, if applicable.
-- Final launch jurisdiction and applicable legal template requirements.
-- Confirmed analytics, cookie, newsletter, and email marketing providers, if any will be used.
-- Final privacy language for Google Fonts or any self-hosting decision.
-- Verified affiliate partner URLs or a decision to keep all partner purchase CTAs disabled.
-- Verified Instagram profile URL or a decision to remove Instagram entirely.
-- Confirmed domain ownership/status for `ochreandchrome.com`.
-- Shipping, returns, and trade-program policy decisions if the site will make commerce claims beyond editorial affiliate linking.
-
-P0 validation performed:
-
+- The Ochre & Chrome website is technically ready for preview/share review.
+- Public launch is still blocked by human/legal/affiliate/social/domain decisions listed below.
 - `npm run build` passes and generates 23 static pages.
-- Source/repo search found no remaining sample partner domains, old trend-report season label, or former temporary legal phrases.
-- Active site search found no misleading old partner CTA, old report CTA, generic Instagram URL, generic Pinterest homepage URL, or old shipping/artisan/trade footer claims.
-- Built internal route/anchor check found no broken internal page or anchor targets, excluding generated Astro asset links.
+- Internal route and anchor checks are clean.
+- Guard searches are clean for sample partner URLs, outdated trend-report season copy, misleading affiliate CTAs, misleading report CTAs, and misleading newsletter/signup promises.
+- No Astro component exceeds 200 lines.
+- `visual-qa-polish/` contains QA screenshots and is ignored in Git.
 
-## Architecture Refactor Progress
+Current generated routes:
 
-Completed maintainability refactor milestones:
+- `/`
+- `/about/`
+- `/affiliate-disclosure/`
+- `/impressum/`
+- `/guides/`
+- 4 guide detail pages
+- `/journal/`
+- 1 journal detail page
+- `/shop/`
+- `/trend-report/`
+- `/privacy/`
+- `/terms/`
+- 8 product detail pages
 
-- Split the former `03-Website/astro-site/src/styles/global.css` monolith from 3162 lines into imported style modules.
-- `global.css` now acts as a 15-line import manifest only.
-- Added style modules:
+## Completed Work
+
+### P0 Launch-Readiness
+
+- [x] Replaced temporary privacy copy with safe interim static-site privacy copy.
+- [x] Replaced temporary terms copy with safe interim editorial terms.
+- [x] Added `/impressum/` with verified contact email and explicit missing-operator-data notice.
+- [x] Added `/affiliate-disclosure/` and linked it from active footer/disclosure surfaces.
+- [x] Removed all sample partner destinations from source data.
+- [x] Converted product partner CTAs without verified URLs into safe disabled states.
+- [x] Changed local product listing CTAs to `View Details`.
+- [x] Fixed the trend-report season inconsistency; active copy uses `Spring / Summer 2026`.
+- [x] Replaced misleading footer/category anchors with valid internal targets.
+- [x] Removed active Shipping, Returns, Trade Program, Careers, and Our Artisans links until real policies/pages exist.
+- [x] Replaced generic social URLs with verified Pinterest and safe Instagram fallback.
+- [x] Disabled newsletter/signup controls and removed active signup promises.
+- [x] Changed the trend report CTA to an email/request flow rather than implying an automated download.
+
+### Architecture Refactor
+
+- [x] Split the former 3162-line `src/styles/global.css` monolith into logical style modules.
+- [x] Reduced `global.css` to an import manifest.
+- [x] Added style modules:
   - `tokens.css`
   - `base.css`
   - `typography.css`
@@ -134,199 +68,109 @@ Completed maintainability refactor milestones:
   - `legal.css`
   - `responsive.css`
   - `responsive-editorial.css`
-- Extracted shared Astro components:
-  - `src/components/SiteHeader.astro`
-  - `src/components/SiteFooter.astro`
-  - `src/components/NewsletterSignup.astro`
-  - `src/components/ProductCard.astro`
-  - `src/components/GuideCard.astro`
-  - `src/components/AffiliateDisclosure.astro`
-- Added `src/data/home.ts` to move homepage-only nav, guide, product, trend, aesthetic, and social data out of `src/pages/index.astro`.
-- Reduced major page files:
-  - `src/pages/index.astro`: 353 lines to 169 lines.
-  - `src/pages/guides/[slug].astro`: 144 lines to 132 lines.
-  - `src/pages/guides/index.astro`: 124 lines to 117 lines.
-  - `src/pages/shop/index.astro`: 95 lines to 68 lines.
-  - `src/pages/products/[slug].astro`: 72 lines to 64 lines.
-  - `src/pages/trend-report.astro`: 69 lines to 61 lines.
+- [x] Extracted shared Astro components:
+  - `SiteHeader.astro`
+  - `SiteFooter.astro`
+  - `NewsletterSignup.astro`
+  - `ProductCard.astro`
+  - `GuideCard.astro`
+  - `AffiliateDisclosure.astro`
+- [x] Added `src/data/home.ts` for homepage-only data.
+- [x] Reduced major page duplication across homepage, guides, shop, product detail, and trend-report templates.
+- [x] Confirmed no Astro component exceeds 200 lines.
 
-Remaining oversized files/components after this milestone:
+### Visual And Responsive Polish
 
-- No Astro component exceeds 200 lines.
-- `src/data/site.ts` remains 261 lines and still mixes several content domains. This is a future data/content architecture task.
-- Large style modules remain by page/system area: `home.css` 740 lines, `responsive-editorial.css` 560 lines, `guides-detail.css` 401 lines, `responsive.css` 365 lines, and `guides.css` 346 lines. These are no longer one global monolith, but they should be refined during the later visual/responsive pass.
+- [x] Preserved the existing Ochre & Chrome premium editorial direction.
+- [x] Improved homepage spacing rhythm, hero sizing, section gaps, media fallbacks, and mobile first-viewport balance.
+- [x] Improved guide hub image fallbacks and disabled newsletter state clarity.
+- [x] Improved guide detail image handling, hero focal behavior, shop-layer alignment, and related-guide treatments.
+- [x] Improved shop and product page image backgrounds, focal behavior, and product media height stability.
+- [x] Improved trend-report image handling and chapter focal behavior.
+- [x] Brought journal, about, and legal pages closer to the site's editorial visual system.
+- [x] Captured screenshots for key routes at 390px, 768px, 1024px, and 1440px.
+- [x] Reviewed representative screenshots for mobile/tablet/desktop layout issues.
 
-Intentional 200-line component exceptions:
+### Final QA
 
-- None.
+- [x] Ran final `npm run build`; build passes with 23 static pages.
+- [x] Confirmed internal route/anchor checks are clean.
+- [x] Confirmed guard searches are clean.
+- [x] Confirmed built pages have titles, meta descriptions, and one H1 each.
+- [x] Confirmed no Astro component exceeds 200 lines.
+- [x] Added basic Open Graph and Twitter summary metadata.
+- [x] Improved important card image alt text.
+- [x] Expanded the About page copy without changing the visual direction or safety states.
 
-Architecture validation performed:
+## Remaining Launch Blockers Requiring Human Input
 
-- `npm run build` passes after CSS splitting.
-- `npm run build` passes after component extraction and homepage data extraction.
-- Static route count remains 23 pages.
-- Component and page line-count audit completed.
-- Guard search completed for sample partner domains, old trend-report season text, misleading partner CTA text, old report CTA text, and misleading newsletter/signup promises.
+These items block full public launch, but do not block preview/share review:
 
-## Visual Polish Progress
+- Legal operator name.
+- Postal address.
+- Responsible person/editor where required by jurisdiction.
+- Business registration details, if applicable.
+- VAT/tax identification details, if applicable.
+- Final launch jurisdiction and applicable legal template requirements.
+- Final legal review for privacy, terms, impressum, and affiliate disclosure.
+- Confirmed analytics, cookie, newsletter, and email marketing providers, if any will be used.
+- Final privacy language for Google Fonts or a self-hosting decision.
+- Verified affiliate partner URLs or a decision to keep all partner purchase CTAs disabled.
+- Verified Instagram profile URL or a decision to remove Instagram entirely.
+- Confirmed domain ownership/status for `ochreandchrome.com`.
+- Shipping, returns, and trade-program policy decisions if the site will make commerce claims beyond editorial affiliate linking.
 
-Completed existing-style visual fixes:
+## Remaining Technical Debt
 
-- Preserved the current Ochre & Chrome art direction; no redesign or new visual language was introduced.
-- Homepage:
-  - Reduced fragile desktop hero height from fixed oversized minima to viewport-aware clamps.
-  - Reduced mobile first-viewport excess whitespace around hero and newsletter card.
-  - Normalized homepage section rhythm with clamp-based spacing.
-  - Added consistent fallback media backgrounds for editorial/product imagery.
-  - Improved trend image focal point and mobile aspect behavior.
-- Guides hub:
-  - Kept existing editorial hero and card system.
-  - Added consistent image fallback backgrounds.
-  - Clarified disabled newsletter controls visually without re-enabling signup promises.
-- Guide detail pages:
-  - Added safer image fallback treatment for hero, article images, next guides, and shop-layer cards.
-  - Adjusted guide hero image focal point to reduce awkward cropping.
-  - Tightened shop-layer card alignment.
-- Shop and product pages:
-  - Added consistent media backgrounds for cart hero, featured collection, product cards, and shop-look images.
-  - Reduced product detail media height fragility with responsive clamps.
-  - Improved commerce-card image focal points.
-- Trend report:
-  - Added consistent image fallback backgrounds.
-  - Improved chapter image focal point behavior.
-- Journal/about/legal pages:
-  - Journal cards now use the same warm editorial paper treatment as the rest of the site.
-  - Legal pages now use a centered editorial layout, stronger rhythm, and a small ochre rule so they no longer feel like bare prototype pages.
-  - Mobile legal pages use reduced type and tighter page width to avoid awkward oversized text.
+### Styling
 
-Responsive QA performed:
+The old global stylesheet monolith has been resolved. Remaining CSS work is now normal post-refactor cleanup of large page/system modules:
 
-- Captured screenshots for the requested key routes at 390px, 768px, 1024px, and 1440px.
-- Screenshot output was written to `03-Website/astro-site/visual-qa-polish/` and ignored in Git as QA artifact output.
-- Manually inspected representative critical screenshots:
-  - `390-home.png`
-  - `390-guides.png`
-  - `390-products-vale-velvet-chair.png`
-  - `390-privacy.png`
-  - `1440-home.png`
+- `src/styles/home.css` - 781 lines.
+- `src/styles/responsive-editorial.css` - 600 lines.
+- `src/styles/guides-detail.css` - 416 lines.
+- `src/styles/responsive.css` - 415 lines.
+- `src/styles/guides.css` - 358 lines.
 
-Visual validation performed:
+Recommended cleanup:
 
-- `npm run build` passes.
-- Static route count remains 23 pages.
-- Guard search found no accidental reintroduction of sample partner domains, old trend-report season text, misleading partner CTA text, old report CTA text, or misleading newsletter/signup promises.
-- Line-count audit confirms no Astro component exceeds 200 lines.
+- Continue reducing large CSS modules by extracting stable shared patterns.
+- Keep page-specific polish in page-specific modules.
+- Avoid reintroducing one global catch-all stylesheet.
+- Add visual regression checks before larger style cleanup.
 
-Remaining visual risks:
+### Data And Content Architecture
 
-- Full screenshot review across all 48 generated captures has not been exhaustively annotated; the representative set looked stable.
-- Existing source imagery limits some exact crop quality. Current fixes improve framing but do not replace assets.
-- `home.css`, `responsive-editorial.css`, `guides-detail.css`, `responsive.css`, and `guides.css` remain large style modules and should receive deeper cleanup during a later visual-system pass.
-- The live site still needs a final human browser review on real devices after legal data and final content are supplied.
+- `src/data/site.ts` remains 261 lines and mixes guides, products, trend chapters, material palettes, affiliate state, and content copy.
+- Split `site.ts` into smaller typed modules or Astro content collections when content volume grows.
+- Add real journal depth or clarify the long-term relationship between Guides and Journal.
+- Reconcile any future homepage product highlights against product detail data from a single source.
 
-Remaining lower-priority refactor/UI tasks are unchanged below and should be handled after P0 legal data is supplied.
+### SEO, Accessibility, And Launch Hygiene
 
-## Priority Order
+- Add canonical URLs once the final domain is confirmed.
+- Add Open Graph image support once final share imagery is chosen.
+- Add sitemap and robots output for the confirmed domain.
+- Add structured data where useful for editorial/product content.
+- Add automated accessibility checks and manual keyboard/focus review.
+- Add automated built-output link checking to the QA workflow.
+- Audit image dimensions, formats, lazy loading, font loading, and CSS payload before public launch.
 
-### P0 - Production Blockers
+### Visual QA
 
-- [x] Replace temporary legal copy: privacy, terms, affiliate disclosure, shipping/returns, contact/imprint as needed.
-- [x] Remove sample partner URLs or remove partner CTAs until valid.
-- [x] Fix misleading internal anchors and footer links.
-- [x] Align content dates and claims for the trend report.
-- [x] Decide newsletter/report capture behavior and implement real form handling or remove form promises.
-- [ ] Supply final human/legal operator data listed in "Unresolved P0 items requiring human/legal input before launch."
+- Representative screenshot review is complete and showed no final safe fixes required.
+- Full real-device review should still happen after legal/contact/social/affiliate decisions are supplied.
+- Current source imagery limits some exact crop quality; replace or supplement assets where final editorial quality demands it.
 
-### P1 - Architecture Refactor
+## Recommended Next Steps
 
-- Split `global.css` into maintainable style modules.
-- Extract shared layout components: `SiteHeader`, `SiteFooter`, `EditorialNav`, `NewsletterSignup`, `ProductCard`, `GuideCard`, `HeroMedia`, `AffiliateDisclosure`.
-- Move homepage product cards to shared product data or a dedicated homepage data module.
-- Separate content domains from `site.ts`: `guides.ts`, `products.ts`, `trendReport.ts`, `materials.ts`.
-- Remove or relocate generated screenshots/logs from the source-facing site directory.
+1. Supply and legally review the human/legal launch information.
+2. Decide affiliate, newsletter, Instagram, and domain status.
+3. Run a final preview review on real devices using the current build.
+4. Add domain-aware SEO launch assets: canonical URLs, sitemap, robots, Open Graph images, and structured data.
+5. Add automated QA checks for links, accessibility, and visual regression.
+6. Continue post-launch technical-debt cleanup of large CSS modules and `src/data/site.ts`.
 
-### P2 - UI And Responsive Repair
+## Current Assessment
 
-- Run page-by-page visual QA at mobile, tablet, laptop, and wide desktop sizes.
-- Normalize spacing scale, section widths, type scale, and image aspect ratios.
-- Rework hero and editorial page layouts mobile-first.
-- Fix image cropping with explicit per-image focal points only where needed.
-- Standardize nav/footer behavior and information architecture across all pages.
-
-### P3 - Content And Editorial Polish
-
-- Expand About into a credible editorial brand page.
-- Decide whether Guides and Journal are separate surfaces or overlapping content types.
-- Add real journal content or remove empty/prototype language.
-- Validate product names, prices, materials, images, affiliate disclosures, and partner claims.
-- Replace generic social links with real brand profiles or hide them.
-
-### P4 - QA, Accessibility, SEO, And Launch Hygiene
-
-- Add automated link checking for built `dist`.
-- Add visual regression snapshots for key pages.
-- Check accessibility: heading order, image alt text, form labels/states, focus states, nav landmarks.
-- Add SEO basics: canonical URLs, Open Graph images, sitemap, robots, structured data where useful.
-- Audit performance: image dimensions, formats, lazy loading, font loading, CSS payload.
-
-## Pages And Components Affected
-
-- Homepage: `src/pages/index.astro`, `global.css` lines 51-790 and responsive blocks.
-- Shared layout: `src/layouts/BaseLayout.astro`.
-- Global data: `src/data/site.ts`.
-- Guides hub: `src/pages/guides/index.astro`.
-- Guide detail: `src/pages/guides/[slug].astro`.
-- Shop: `src/pages/shop/index.astro`.
-- Product detail: `src/pages/products/[slug].astro`.
-- Trend report: `src/pages/trend-report.astro`.
-- Journal index/detail: `src/pages/journal/index.astro`, `src/pages/journal/[...slug].astro`, `src/content/journal`.
-- Legal/info: `src/pages/privacy.astro`, `src/pages/terms.astro`, `src/pages/about.astro`, plus missing production pages.
-- Assets: `public/ochre-assets`, `public/homepage-generated-assets-hires`, `public/homepage-mockup-assets`, `public/design-references`.
-
-## Execution Checklist
-
-### Architecture
-
-- [ ] Create shared component directory and extract repeated nav/footer/card/newsletter pieces.
-- [ ] Split `global.css` by layer: tokens/base, shared components, homepage, editorial pages, commerce/product, journal/legal, responsive utilities.
-- [ ] Refactor homepage product and guide data to use shared source data.
-- [ ] Split `src/data/site.ts` into smaller typed modules or Astro content collections.
-- [ ] Clean generated visual QA files/logs out of the source working area or move them under an ignored artifacts folder.
-
-### UI And Responsive
-
-- [ ] Capture current screenshots for `/`, `/guides/`, `/guides/layering-like-a-designer/`, `/shop/`, `/products/vale-velvet-chair/`, `/trend-report/`, `/journal/`, `/about/`.
-- [ ] Define target spacing/type/image rules before patching individual pages.
-- [ ] Repair homepage hero, lead card, product grid, trend panel, social grid, and footer across mobile/desktop.
-- [ ] Repair guide hub hero, filters, featured guide, guide grid, newsletter, and footer.
-- [ ] Repair guide detail article hero, sidebar, content sections, swatches, shop layer, and next guides.
-- [ ] Repair shop/product pages, especially category anchors, product cards, affiliate disclosure, and image crops.
-- [ ] Repair trend report hero, chapter alternation, material forecast, and download CTA.
-- [ ] Repair journal/legal pages to match the premium editorial system.
-
-### Content And Legal
-
-- [x] Replace temporary privacy and terms copy with safe interim copy.
-- [x] Add or correctly route affiliate disclosure and impressum pages.
-- [x] Remove misleading shipping, returns, and trade program links until policies exist.
-- [x] Remove all sample affiliate links.
-- [x] Correct trend report season inconsistency.
-- [x] Replace generic social URLs with verified Pinterest and safe Instagram fallback.
-- [x] Disable newsletter/report signup promises where no backend exists.
-- [ ] Replace safe interim legal copy with final launch-ready legal copy after human/legal data is supplied.
-- [ ] Reconcile homepage product names/prices with product detail data.
-
-### QA
-
-- [ ] Run `npm run build` after each refactor slice.
-- [ ] Add internal route/anchor/link check against built output.
-- [ ] Add visual regression checks for key breakpoints.
-- [ ] Run accessibility checks and manually inspect focus/keyboard flows.
-- [ ] Validate image loading, alt text, font loading, favicon, metadata, sitemap, and robots.
-
-## Recommended Execution Order
-
-1. Fix P0 content/legal/link blockers first so the site stops making false or temporary production claims.
-2. Refactor shared architecture and split the stylesheet before doing a full visual pass.
-3. Do visual/responsive repair page by page, starting with homepage, guide hub, guide detail, shop/product, trend report, then journal/legal.
-4. Add QA automation and launch hygiene once the structure is stable.
+Ochre & Chrome is in a clean post-QA state for technical preview/share review. The remaining blockers are business, legal, affiliate, social, and domain decisions rather than unresolved code architecture or visual-polish blockers.

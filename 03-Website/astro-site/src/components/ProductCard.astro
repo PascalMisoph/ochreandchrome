@@ -11,7 +11,7 @@ const href = `/products/${product.slug}/`;
   variant === "commerce" ? (
     <article class="commerce-card">
       <a href={href}>
-        <img src={product.image} alt="" />
+        <img src={product.image} alt={product.title} />
       </a>
       <div>
         <h3>{product.title}</h3>
@@ -23,7 +23,7 @@ const href = `/products/${product.slug}/`;
     </article>
   ) : variant === "shop-layer" ? (
     <article>
-      <img src={product.image} alt="" />
+      <img src={product.image} alt={product.title} />
       <h3>{product.title}</h3>
       <p>{product.material}</p>
       <a href={href} class="partner-button">View Details</a>
