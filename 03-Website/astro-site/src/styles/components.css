@@ -1,0 +1,79 @@
+﻿.featured-guide {
+  display: grid;
+  grid-template-columns: 120px minmax(280px, 0.7fr) minmax(420px, 1.1fr);
+  gap: clamp(32px, 6vw, 86px);
+  align-items: center;
+  width: var(--page-width);
+  margin: 0 auto;
+  padding: clamp(70px, 9vw, 110px) 0;
+}
+
+.vertical-mark {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  min-height: 420px;
+  border-left: 1px solid rgba(169, 107, 39, 0.38);
+}
+
+.vertical-mark span {
+  align-self: center;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid rgba(169, 107, 39, 0.5);
+  border-radius: 50%;
+  background: #f6f1e8;
+  font-family: "Playfair Display", serif;
+  line-height: 1;
+}
+
+.featured-guide h2,
+.section-title-line h2,
+.newsletter-panel h2,
+.article-section h2,
+.shop-layer h2,
+.full-guide-cta h2,
+.trend-chapter h2,
+.material-forecast h2,
+.report-download h2,
+.featured-collection h2,
+.shop-look h2,
+.why-product h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  line-height: 1;
+}
+
+.featured-guide__copy p:not(.oc-kicker),
+.newsletter-panel p,
+.article-section p,
+.trend-chapter p,
+.report-download p,
+.featured-collection p,
+.shop-look p,
+.why-product p {
+  color: rgba(18, 24, 29, 0.72);
+  font-size: 1.04rem;
+  line-height: 1.72;
+}
+
+.featured-guide__media,
+.featured-guide__media img {
+  min-height: 520px;
+}
+
+.featured-guide__media img,
+.guide-tile img,
+.article-section img,
+.trend-chapter img,
+.featured-collection img,
+.cart-hero img,
+.shop-look img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+

@@ -1,0 +1,39 @@
+﻿
+.product-detail {
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) minmax(320px, 0.72fr);
+  gap: clamp(38px, 7vw, 86px);
+  align-items: center;
+  padding: clamp(54px, 8vw, 100px) 0;
+}
+
+.product-detail__media {
+  display: grid;
+  place-items: center;
+  min-height: 620px;
+  background: #eee4d8;
+}
+
+.product-detail__media img {
+  max-height: 520px;
+  object-fit: contain;
+}
+
+.product-detail__copy h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3.6rem, 6vw, 6rem);
+  line-height: 0.95;
+}
+
+.product-detail__copy > strong {
+  display: block;
+  margin: 24px 0;
+  font-size: 1.25rem;
+}
+
+.why-product {
+  max-width: 850px;
+  padding: 20px 0 72px;
+}
+

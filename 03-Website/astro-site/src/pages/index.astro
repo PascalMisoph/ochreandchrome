@@ -1,127 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import GuideCard from "../components/GuideCard.astro";
+import NewsletterSignup from "../components/NewsletterSignup.astro";
+import ProductCard from "../components/ProductCard.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { aesthetics, homepageGuides, homepageProducts, navItems, socials, trendItems } from "../data/home";
 
-const navItems = [
-  { label: "Shop", href: "/shop/" },
-  { label: "Guides", href: "/guides/" },
-  { label: "Trend Report", href: "/trend-report/" },
-  { label: "About", href: "/about/" },
-  { label: "Journal", href: "/journal/" }
-];
-
-const aesthetics = [
-  {
-    label: "Neo Deco",
-    description: "Glamour. Geometry. Polish. A modern take on timeless design codes.",
-    image: "/homepage-generated-assets-hires/aesthetic-neo-deco.png",
-    href: "/guides/the-art-of-mixing/"
-  },
-  {
-    label: "Afrohemian",
-    description: "Soulful. Textured. Collected. A celebration of craft, culture, and storytelling.",
-    image: "/homepage-generated-assets-hires/aesthetic-afrohemian.png",
-    href: "/guides/afrohemian-rooms-with-soul/"
-  }
-];
-
-const guides = [
-  {
-    title: "Layering Like a Designer",
-    description: "Build depth with texture, tone, and timeless pieces.",
-    image: "/homepage-generated-assets-hires/guide-layering-like-a-designer.png",
-    href: "/guides/layering-like-a-designer/"
-  },
-  {
-    title: "Brass Is Back",
-    description: "Warm metals, modern forms, and how to style them right.",
-    image: "/homepage-generated-assets-hires/guide-brass-is-back.png",
-    href: "/guides/brass-is-back/"
-  },
-  {
-    title: "The Art of Mixing",
-    description: "Blend eras, materials, and influences with ease.",
-    image: "/homepage-generated-assets-hires/guide-the-art-of-mixing.png",
-    href: "/guides/the-art-of-mixing/"
-  }
-];
-
-const products = [
-  {
-    title: "Riviera Velvet Chair",
-    slug: "vale-velvet-chair",
-    image: "/homepage-generated-assets-hires/product-riviera-velvet-chair.png",
-    meta: "Ochre Velvet / Brass Base",
-    price: "$1,450"
-  },
-  {
-    title: "Safi Marble Side Table",
-    slug: "arlo-marble-side-table",
-    image: "/homepage-generated-assets-hires/product-safi-marble-side-table.png",
-    meta: "Black Marble / Hand-carved",
-    price: "$890"
-  },
-  {
-    title: "Zola Ceramic Vessel",
-    slug: "riva-ceramic-vessel",
-    image: "/homepage-generated-assets-hires/product-zola-ceramic-vessel.png",
-    meta: "Terracotta / Hand-thrown",
-    price: "$240"
-  },
-  {
-    title: "Oro Wall Sconce",
-    slug: "hearth-brass-pendant",
-    image: "/homepage-generated-assets-hires/product-oro-wall-sconce.png",
-    meta: "Brushed Brass / Opal Glass",
-    price: "$320"
-  }
-];
-
-const trendItems = [
-  "Earth Tones, Elevated",
-  "Craft as Currency",
-  "Curves, Not Corners",
-  "Global Influence"
-];
-
-const socials = [
-  "/homepage-generated-assets-hires/social-follow-01.png",
-  "/homepage-generated-assets-hires/social-follow-02.png",
-  "/homepage-generated-assets-hires/social-follow-03.png",
-  "/homepage-generated-assets-hires/social-follow-04.png"
-];
-
-const footerColumns = [
-  {
-    title: "Shop",
-    items: [
-      { label: "New In", href: "/shop/" },
-      { label: "Furniture", href: "/shop/#furniture" },
-      { label: "Lighting", href: "/shop/#lighting" },
-      { label: "Decor", href: "/shop/#decor" },
-      { label: "Textiles", href: "/shop/#textiles" },
-      { label: "The Curated Cart", href: "/shop/" }
-    ]
-  },
-  {
-    title: "Guides",
-    items: [
-      { label: "Styling Guides", href: "/guides/" },
-      { label: "Design Principles", href: "/guides/" },
-      { label: "Room Ideas", href: "/guides/afrohemian-rooms-with-soul/" },
-      { label: "Material Library", href: "/trend-report/#material-forecast" }
-    ]
-  },
-  {
-    title: "Company",
-    items: [
-      { label: "About", href: "/about/" },
-      { label: "Affiliate Disclosure", href: "/affiliate-disclosure/" },
-      { label: "Journal", href: "/journal/" },
-      { label: "Impressum", href: "/impressum/" },
-      { label: "Contact", href: "mailto:hello@ochreandchrome.com" }
-    ]
-  }
-];
 ---
 
 <BaseLayout>
@@ -170,12 +54,7 @@ const footerColumns = [
                 Receive our free guide with expert principles, timeless ideas, and a curated
                 starter checklist.
               </p>
-              <div class="lead-form" aria-label="Newsletter signup unavailable">
-                <input type="email" value="Newsletter coming soon" aria-label="Newsletter signup unavailable" disabled />
-                <button type="button" class="button button--primary button--full" disabled>
-                  Coming Soon
-                </button>
-              </div>
+              <NewsletterSignup buttonClass="button button--primary button--full" />
             </div>
           </aside>
         </div>
@@ -211,15 +90,8 @@ const footerColumns = [
       </div>
 
       <div class="guide-grid">
-        {guides.map((guide) => (
-          <article class="guide-card">
-            <img src={guide.image} alt={guide.title} />
-            <div class="guide-card__content">
-              <h3>{guide.title}</h3>
-              <p>{guide.description}</p>
-              <a href={guide.href} class="inline-link">Read Guide</a>
-            </div>
-          </article>
+        {homepageGuides.map((guide) => (
+          <GuideCard {...guide} />
         ))}
       </div>
     </section>
@@ -232,23 +104,8 @@ const footerColumns = [
       </div>
 
       <div class="product-grid">
-        {products.map((product) => (
-          <article class="product-card">
-            <div class="product-card__media">
-              <img src={product.image} alt={product.title} />
-            </div>
-            <div class="product-card__content">
-              <h3>{product.title}</h3>
-              <p>{product.meta}</p>
-              <strong>{product.price}</strong>
-              <div class="product-card__footer">
-                <a href={`/products/${product.slug}/`} class="inline-link">View Details</a>
-                <button class="add-button" type="button" aria-label={`Add ${product.title}`}>
-                  +
-                </button>
-              </div>
-            </div>
-          </article>
+        {homepageProducts.map((product) => (
+          <ProductCard product={product} />
         ))}
       </div>
 
@@ -307,47 +164,6 @@ const footerColumns = [
       </div>
     </section>
 
-    <footer class="site-footer">
-      <div class="site-footer__main">
-        <div class="footer-brand">
-          <a href="/" class="brand brand--footer">
-            <span>Ochre</span>
-            <span>&amp; Chrome</span>
-          </a>
-          <p>
-            Curated aesthetics, shoppable guides, and styling rules for the intentional modern
-            home.
-          </p>
-          <div class="footer-social">
-            <a href="https://www.pinterest.com/ochreandchrome/" aria-label="Pinterest">P</a>
-            <a href="mailto:hello@ochreandchrome.com?subject=Instagram%20profile" aria-label="Instagram profile pending">I</a>
-            <a href="mailto:hello@ochreandchrome.com" aria-label="Email">M</a>
-          </div>
-        </div>
-
-        <div class="footer-columns">
-          {footerColumns.map((column) => (
-            <div class="footer-column">
-              <h3>{column.title}</h3>
-              <ul>
-                {column.items.map((item) => (
-                  <li><a href={item.href}>{item.label}</a></li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div class="site-footer__meta">
-        <span>&copy; 2026 Ochre &amp; Chrome. All rights reserved.</span>
-        <div>
-          <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
-          <a href="/privacy/">Privacy</a>
-          <a href="/terms/">Terms</a>
-          <a href="/impressum/">Impressum</a>
-        </div>
-      </div>
-    </footer>
+    <SiteFooter />
   </main>
 </BaseLayout>

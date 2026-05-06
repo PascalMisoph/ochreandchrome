@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 import { materialForecast, trendChapters } from "../data/site";
 ---
 
@@ -11,16 +12,7 @@ import { materialForecast, trendChapters } from "../data/site";
     <section class="trend-hero">
       <img src="/ochre-assets/trend-report-hero-2026.png" alt="" />
       <div class="trend-hero__shade"></div>
-      <header class="oc-nav oc-nav--overlay">
-        <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
-        <nav aria-label="Primary">
-          <a href="/shop/">Shop</a>
-          <a href="/guides/">Guides</a>
-          <a href="/trend-report/" aria-current="page">Trend Report</a>
-          <a href="/journal/">Journal</a>
-          <a href="/about/">About</a>
-        </nav>
-      </header>
+      <SiteHeader current="trend-report" variant="overlay" />
       <div>
         <p class="oc-kicker">Trend Report</p>
         <h1>What's Next in Design</h1>

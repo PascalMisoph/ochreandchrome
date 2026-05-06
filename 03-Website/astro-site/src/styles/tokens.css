@@ -1,0 +1,17 @@
+﻿:root {
+  --cream: #f7f5f0;
+  --oatmeal: #e5e0d8;
+  --navy: #1a2a3a;
+  --navy-soft: #23384b;
+  --ink: #2c2c2c;
+  --ochre: #c48b36;
+  --terracotta: #a95c45;
+  --brass: #d4af37;
+  --line: rgba(26, 42, 58, 0.12);
+  --shadow-soft: 0 20px 60px rgba(17, 21, 25, 0.08);
+  --shadow-strong: 0 30px 90px rgba(0, 0, 0, 0.2);
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --page-width: min(1240px, calc(100vw - 64px));
+}
+

@@ -1,0 +1,18 @@
+---
+const {
+  href = "/affiliate-disclosure/",
+  linkLabel = "Learn More"
+} = Astro.props;
+---
+
+<section class="affiliate-disclosure">
+  <span></span>
+  <div>
+    <h2>Affiliate Disclosure</h2>
+    <p>
+      Partner links may support our work. We only recommend pieces we would actually style and
+      disclose affiliate relationships clearly.
+    </p>
+  </div>
+  <a href={href}>{linkLabel}</a>
+</section>

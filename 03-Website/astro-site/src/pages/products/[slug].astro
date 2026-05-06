@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
 import { products } from "../../data/site";
 
 export function getStaticPaths() {
@@ -15,16 +16,7 @@ const related = products.filter((item) => item.slug !== product.slug).slice(0, 3
 
 <BaseLayout title={`${product.title} | Ochre & Chrome`} description={product.note}>
   <main class="editorial-page product-page">
-    <header class="oc-nav oc-nav--light">
-      <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
-      <nav aria-label="Primary">
-        <a href="/shop/">Shop</a>
-        <a href="/guides/">Guides</a>
-        <a href="/trend-report/">Trend Report</a>
-        <a href="/journal/">Journal</a>
-        <a href="/about/">About</a>
-      </nav>
-    </header>
+    <SiteHeader current="shop" />
 
     <section class="product-detail">
       <div class="product-detail__media">
@@ -38,7 +30,7 @@ const related = products.filter((item) => item.slug !== product.slug).slice(0, 3
         <p>{product.note}</p>
         {
           product.partnerUrl ? (
-            <a href={product.partnerUrl} class="partner-button">View at Partner</a>
+            <a href={product.partnerUrl} class="partner-button">Open Partner Link</a>
           ) : (
             <span class="partner-button" aria-disabled="true">Partner Link Pending</span>
           )

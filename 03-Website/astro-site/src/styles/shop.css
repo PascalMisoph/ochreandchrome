@@ -1,0 +1,139 @@
+﻿.cart-hero {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.7fr) minmax(520px, 1fr);
+  align-items: center;
+  min-height: 520px;
+}
+
+.cart-hero > div {
+  padding-right: clamp(28px, 5vw, 68px);
+}
+
+.cart-hero h1 {
+  font-size: clamp(4.8rem, 8vw, 7.2rem);
+}
+
+.cart-hero img {
+  height: 520px;
+}
+
+.cart-dek {
+  margin: 24px 0;
+  color: #9b4f32;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-style: italic;
+}
+
+.cart-tabs {
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0 clamp(24px, 5vw, 64px);
+  border-top: 1px solid rgba(18, 24, 29, 0.12);
+  border-bottom: 1px solid rgba(18, 24, 29, 0.12);
+}
+
+.cart-tabs a {
+  flex: 1;
+  min-height: 72px;
+  color: #101820;
+  border: 0;
+  border-right: 1px solid rgba(18, 24, 29, 0.12);
+  background: transparent;
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.featured-collection {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.48fr) minmax(520px, 1fr);
+  overflow: hidden;
+  margin-top: 34px;
+  border-radius: 8px;
+  min-height: 500px;
+}
+
+.featured-collection > div {
+  display: grid;
+  align-content: center;
+  padding: clamp(38px, 5vw, 58px);
+  color: #fff7eb;
+  background: #101820;
+}
+
+.featured-collection h2 {
+  font-size: clamp(2.8rem, 4.8vw, 4.6rem);
+}
+
+.featured-collection p {
+  max-width: 340px;
+}
+
+.product-showroom {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  padding: 36px 0 28px;
+}
+
+.commerce-card {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.commerce-card img {
+  width: 100%;
+  aspect-ratio: 1 / 0.92;
+  object-fit: cover;
+}
+
+.commerce-card > div {
+  display: grid;
+  gap: 7px;
+  padding: 16px;
+}
+
+.why-link {
+  color: #8e5522;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.affiliate-disclosure {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  gap: 28px;
+  align-items: center;
+  margin-top: 12px;
+  padding: 24px 30px;
+  border: 1px solid rgba(18, 24, 29, 0.12);
+  border-radius: 8px;
+  background: #fbf7ef;
+}
+
+.affiliate-disclosure > span {
+  width: 68px;
+  height: 68px;
+  border: 1px solid rgba(18, 24, 29, 0.3);
+  border-radius: 50%;
+}
+
+.affiliate-disclosure h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+}
+
+.shop-look {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.6fr) minmax(420px, 1fr);
+  gap: 54px;
+  align-items: center;
+  padding: 48px 0 70px;
+}
+
+.shop-look img {
+  max-height: 520px;
+}

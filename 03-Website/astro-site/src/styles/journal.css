@@ -1,0 +1,101 @@
+﻿.journal-page,
+.post-page {
+  width: var(--page-width);
+  margin: 0 auto;
+  padding: 72px 0 120px;
+}
+
+.journal-hero,
+.post-article header {
+  max-width: 760px;
+  padding: 72px 0 56px;
+}
+
+.journal-back {
+  display: inline-flex;
+  margin-bottom: 46px;
+  color: var(--ochre);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.journal-hero h1,
+.post-article h1 {
+  margin: 16px 0 20px;
+  color: var(--navy);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3.4rem, 7vw, 6rem);
+  line-height: 0.96;
+}
+
+.journal-hero p,
+.post-article header p,
+.journal-empty {
+  margin: 0;
+  color: rgba(44, 44, 44, 0.76);
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.journal-list {
+  display: grid;
+  gap: 24px;
+}
+
+.journal-card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.journal-card img {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  object-fit: cover;
+}
+
+.journal-card h2 {
+  margin: 10px 0 10px;
+  color: var(--navy);
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.journal-card p {
+  margin: 0;
+  color: rgba(44, 44, 44, 0.74);
+  line-height: 1.65;
+}
+
+.journal-empty code {
+  color: var(--navy);
+  font-size: 0.96em;
+}
+
+.post-article {
+  max-width: 760px;
+}
+
+.post-article :global(h2) {
+  margin: 54px 0 14px;
+  color: var(--navy);
+  font-family: "Playfair Display", serif;
+  font-size: 2.4rem;
+  line-height: 1.05;
+}
+
+.post-article :global(p),
+.post-article :global(li) {
+  color: rgba(44, 44, 44, 0.82);
+  font-size: 1.1rem;
+  line-height: 1.78;
+}
+

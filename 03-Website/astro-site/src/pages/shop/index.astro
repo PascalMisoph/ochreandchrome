@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import AffiliateDisclosure from "../../components/AffiliateDisclosure.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
 import { products } from "../../data/site";
 
 const categories = ["Furniture", "Lighting", "Decor", "Textiles"];
@@ -14,16 +17,7 @@ const productsByCategory = categories.map((category) => ({
   description="Editor-selected affiliate home pieces for intentional rooms."
 >
   <main class="editorial-page cart-page">
-    <header class="oc-nav oc-nav--light">
-      <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
-      <nav aria-label="Primary">
-        <a href="/shop/" aria-current="page">Shop</a>
-        <a href="/guides/">Guides</a>
-        <a href="/trend-report/">Trend Report</a>
-        <a href="/journal/">Journal</a>
-        <a href="/about/">About</a>
-      </nav>
-    </header>
+    <SiteHeader current="shop" />
 
     <section class="cart-hero">
       <div>
@@ -54,33 +48,12 @@ const productsByCategory = categories.map((category) => ({
     {productsByCategory.map(({ category, items }) => (
       <section class="product-showroom" id={category.toLowerCase()} aria-label={category}>
         {items.map((product) => (
-          <article class="commerce-card">
-            <a href={`/products/${product.slug}/`}>
-              <img src={product.image} alt="" />
-            </a>
-            <div>
-              <h3>{product.title}</h3>
-              <p>{product.material}</p>
-              <strong>{product.price}</strong>
-              <a href={`/products/${product.slug}/`} class="partner-button">View Details</a>
-              <a href={`/products/${product.slug}/`} class="why-link">Why We Chose It</a>
-            </div>
-          </article>
+          <ProductCard product={product} variant="commerce" />
         ))}
       </section>
     ))}
 
-    <section class="affiliate-disclosure">
-      <span></span>
-      <div>
-        <h2>Affiliate Disclosure</h2>
-        <p>
-          Partner links may support our work. We only recommend pieces we would actually style and
-          disclose affiliate relationships clearly.
-        </p>
-      </div>
-      <a href="/affiliate-disclosure/">Learn More</a>
-    </section>
+    <AffiliateDisclosure />
 
     <section class="shop-look">
       <div>

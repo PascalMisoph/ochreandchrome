@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
 import { guides, products } from "../../data/site";
 
 export function getStaticPaths() {
@@ -27,16 +29,7 @@ const materialStack = [
 
 <BaseLayout title={`${guide.title} | Ochre & Chrome`} description={guide.dek}>
   <main class={`editorial-page guide-detail guide-detail--${guide.slug}`}>
-    <header class="oc-nav oc-nav--light">
-      <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
-      <nav aria-label="Primary">
-        <a href="/shop/">Shop</a>
-        <a href="/guides/" aria-current="page">Guides</a>
-        <a href="/trend-report/">Trend Report</a>
-        <a href="/journal/">Journal</a>
-        <a href="/about/">About</a>
-      </nav>
-    </header>
+    <SiteHeader current="guides" />
 
     <section class="article-hero">
       <div class="article-hero__copy">
@@ -118,12 +111,7 @@ const materialStack = [
       </div>
       <div class="shop-layer__grid">
         {relatedProducts.map((product) => (
-          <article>
-            <img src={product.image} alt="" />
-            <h3>{product.title}</h3>
-            <p>{product.material}</p>
-            <a href={`/products/${product.slug}/`} class="partner-button">View Details</a>
-          </article>
+          <ProductCard product={product} variant="shop-layer" />
         ))}
       </div>
       <p class="affiliate-note">Partner links may support our work. We only recommend what we would style ourselves.</p>

@@ -1,0 +1,39 @@
+---
+const {
+  current = "",
+  variant = "light",
+  className = "",
+  compactGuides = false
+} = Astro.props;
+
+const navItems = [
+  { label: "Shop", href: "/shop/", key: "shop" },
+  { label: "Guides", href: "/guides/", key: "guides" },
+  { label: "Trend Report", href: "/trend-report/", key: "trend-report" },
+  { label: "Journal", href: "/journal/", key: "journal" },
+  { label: "About", href: "/about/", key: "about" }
+];
+
+const headerClass = ["oc-nav", `oc-nav--${variant}`, className].filter(Boolean).join(" ");
+---
+
+<header class={headerClass}>
+  <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
+  {
+    compactGuides ? (
+      <nav aria-label="Primary">
+        <a href="/guides/" aria-current={current === "guides" ? "page" : undefined}>Guides</a>
+        <span aria-hidden="true"></span>
+        <button type="button" aria-label="Menu"><i></i></button>
+      </nav>
+    ) : (
+      <nav aria-label="Primary">
+        {navItems.map((item) => (
+          <a href={item.href} aria-current={current === item.key ? "page" : undefined}>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    )
+  }
+</header>

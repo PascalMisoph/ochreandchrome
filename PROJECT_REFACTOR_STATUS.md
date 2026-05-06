@@ -112,6 +112,62 @@ P0 validation performed:
 - Active site search found no misleading `View at Partner`, `Get the Report`, generic Instagram URL, generic Pinterest homepage URL, or old shipping/artisan/trade footer claims.
 - Built internal route/anchor check found no broken internal page or anchor targets, excluding generated Astro asset links.
 
+## Architecture Refactor Progress
+
+Completed maintainability refactor milestones:
+
+- Split the former `03-Website/astro-site/src/styles/global.css` monolith from 3162 lines into imported style modules.
+- `global.css` now acts as a 15-line import manifest only.
+- Added style modules:
+  - `tokens.css`
+  - `base.css`
+  - `typography.css`
+  - `layout.css`
+  - `components.css`
+  - `home.css`
+  - `guides.css`
+  - `guides-detail.css`
+  - `shop.css`
+  - `product.css`
+  - `trend-report.css`
+  - `journal.css`
+  - `legal.css`
+  - `responsive.css`
+  - `responsive-editorial.css`
+- Extracted shared Astro components:
+  - `src/components/SiteHeader.astro`
+  - `src/components/SiteFooter.astro`
+  - `src/components/NewsletterSignup.astro`
+  - `src/components/ProductCard.astro`
+  - `src/components/GuideCard.astro`
+  - `src/components/AffiliateDisclosure.astro`
+- Added `src/data/home.ts` to move homepage-only nav, guide, product, trend, aesthetic, and social data out of `src/pages/index.astro`.
+- Reduced major page files:
+  - `src/pages/index.astro`: 353 lines to 169 lines.
+  - `src/pages/guides/[slug].astro`: 144 lines to 132 lines.
+  - `src/pages/guides/index.astro`: 124 lines to 117 lines.
+  - `src/pages/shop/index.astro`: 95 lines to 68 lines.
+  - `src/pages/products/[slug].astro`: 72 lines to 64 lines.
+  - `src/pages/trend-report.astro`: 69 lines to 61 lines.
+
+Remaining oversized files/components after this milestone:
+
+- No Astro component exceeds 200 lines.
+- `src/data/site.ts` remains 261 lines and still mixes several content domains. This is a future data/content architecture task.
+- Large style modules remain by page/system area: `home.css` 740 lines, `responsive-editorial.css` 560 lines, `guides-detail.css` 401 lines, `responsive.css` 365 lines, and `guides.css` 346 lines. These are no longer one global monolith, but they should be refined during the later visual/responsive pass.
+
+Intentional 200-line component exceptions:
+
+- None.
+
+Architecture validation performed:
+
+- `npm run build` passes after CSS splitting.
+- `npm run build` passes after component extraction and homepage data extraction.
+- Static route count remains 23 pages.
+- Component and page line-count audit completed.
+- Guard search completed for sample partner domains, old trend-report season text, misleading partner CTA text, old report CTA text, and misleading newsletter/signup promises.
+
 Remaining lower-priority refactor/UI tasks are unchanged below and should be handled after P0 legal data is supplied.
 
 ## Priority Order

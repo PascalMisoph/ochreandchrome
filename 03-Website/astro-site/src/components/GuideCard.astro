@@ -1,0 +1,31 @@
+---
+const {
+  title,
+  description = "",
+  image,
+  href,
+  category = "",
+  variant = "home"
+} = Astro.props;
+---
+
+{
+  variant === "tile" ? (
+    <article class="guide-tile">
+      <a href={href}>
+        <img src={image} alt="" />
+        {category && <p class="oc-kicker">{category}</p>}
+        <h3>{title}</h3>
+      </a>
+    </article>
+  ) : (
+    <article class="guide-card">
+      <img src={image} alt={title} />
+      <div class="guide-card__content">
+        <h3>{title}</h3>
+        {description && <p>{description}</p>}
+        <a href={href} class="inline-link">Read Guide</a>
+      </div>
+    </article>
+  )
+}

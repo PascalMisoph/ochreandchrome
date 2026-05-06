@@ -1,0 +1,14 @@
+---
+const {
+  className = "lead-form",
+  inputLabel = "Newsletter signup unavailable",
+  inputValue = "Newsletter coming soon",
+  buttonLabel = "Coming Soon",
+  buttonClass = ""
+} = Astro.props;
+---
+
+<div class={className} aria-label={inputLabel}>
+  <input type="email" value={inputValue} aria-label={inputLabel} disabled />
+  <button type="button" class={buttonClass} disabled>{buttonLabel}</button>
+</div>

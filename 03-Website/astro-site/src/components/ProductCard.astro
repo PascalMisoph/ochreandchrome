@@ -1,0 +1,49 @@
+---
+const {
+  product,
+  variant = "home"
+} = Astro.props;
+
+const href = `/products/${product.slug}/`;
+---
+
+{
+  variant === "commerce" ? (
+    <article class="commerce-card">
+      <a href={href}>
+        <img src={product.image} alt="" />
+      </a>
+      <div>
+        <h3>{product.title}</h3>
+        <p>{product.material}</p>
+        <strong>{product.price}</strong>
+        <a href={href} class="partner-button">View Details</a>
+        <a href={href} class="why-link">Why We Chose It</a>
+      </div>
+    </article>
+  ) : variant === "shop-layer" ? (
+    <article>
+      <img src={product.image} alt="" />
+      <h3>{product.title}</h3>
+      <p>{product.material}</p>
+      <a href={href} class="partner-button">View Details</a>
+    </article>
+  ) : (
+    <article class="product-card">
+      <div class="product-card__media">
+        <img src={product.image} alt={product.title} />
+      </div>
+      <div class="product-card__content">
+        <h3>{product.title}</h3>
+        <p>{product.meta}</p>
+        <strong>{product.price}</strong>
+        <div class="product-card__footer">
+          <a href={href} class="inline-link">View Details</a>
+          <button class="add-button" type="button" aria-label={`Add ${product.title}`}>
+            +
+          </button>
+        </div>
+      </div>
+    </article>
+  )
+}

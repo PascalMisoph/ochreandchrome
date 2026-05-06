@@ -1,0 +1,76 @@
+---
+const footerColumns = [
+  {
+    title: "Shop",
+    items: [
+      { label: "New In", href: "/shop/" },
+      { label: "Furniture", href: "/shop/#furniture" },
+      { label: "Lighting", href: "/shop/#lighting" },
+      { label: "Decor", href: "/shop/#decor" },
+      { label: "Textiles", href: "/shop/#textiles" },
+      { label: "The Curated Cart", href: "/shop/" }
+    ]
+  },
+  {
+    title: "Guides",
+    items: [
+      { label: "Styling Guides", href: "/guides/" },
+      { label: "Design Principles", href: "/guides/" },
+      { label: "Room Ideas", href: "/guides/afrohemian-rooms-with-soul/" },
+      { label: "Material Library", href: "/trend-report/#material-forecast" }
+    ]
+  },
+  {
+    title: "Company",
+    items: [
+      { label: "About", href: "/about/" },
+      { label: "Affiliate Disclosure", href: "/affiliate-disclosure/" },
+      { label: "Journal", href: "/journal/" },
+      { label: "Impressum", href: "/impressum/" },
+      { label: "Contact", href: "mailto:hello@ochreandchrome.com" }
+    ]
+  }
+];
+---
+
+<footer class="site-footer">
+  <div class="site-footer__main">
+    <div class="footer-brand">
+      <a href="/" class="brand brand--footer">
+        <span>Ochre</span>
+        <span>&amp; Chrome</span>
+      </a>
+      <p>
+        Curated aesthetics, shoppable guides, and styling rules for the intentional modern home.
+      </p>
+      <div class="footer-social">
+        <a href="https://www.pinterest.com/ochreandchrome/" aria-label="Pinterest">P</a>
+        <a href="mailto:hello@ochreandchrome.com?subject=Instagram%20profile" aria-label="Instagram profile pending">I</a>
+        <a href="mailto:hello@ochreandchrome.com" aria-label="Email">M</a>
+      </div>
+    </div>
+
+    <div class="footer-columns">
+      {footerColumns.map((column) => (
+        <div class="footer-column">
+          <h3>{column.title}</h3>
+          <ul>
+            {column.items.map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="site-footer__meta">
+    <span>&copy; 2026 Ochre &amp; Chrome. All rights reserved.</span>
+    <div>
+      <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+      <a href="/impressum/">Impressum</a>
+    </div>
+  </div>
+</footer>

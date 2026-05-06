@@ -1,0 +1,346 @@
+﻿.guide-index {
+  width: var(--page-width);
+  margin: 0 auto;
+  padding: 20px 0 92px;
+}
+
+.section-title-line {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  margin-bottom: 32px;
+}
+
+.section-title-line span {
+  width: 58px;
+  height: 1px;
+  background: #b87a2c;
+}
+
+.guide-index__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.guide-tile a {
+  display: grid;
+  gap: 12px;
+}
+
+.guide-tile img {
+  aspect-ratio: 1 / 1.28;
+}
+
+.guide-tile h3 {
+  max-width: 260px;
+  margin: -4px 0 0;
+  font-family: "Playfair Display", serif;
+  font-size: 1.55rem;
+  line-height: 1.1;
+}
+
+.principles-strip {
+  color: #fff7eb;
+  background: #0f1921;
+  padding: 54px clamp(24px, 5vw, 64px);
+  text-align: center;
+}
+
+.principles-strip > div {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
+  width: var(--page-width);
+  margin: 0 auto;
+}
+
+.principles-strip span {
+  padding: 16px 18px;
+  border-right: 1px solid rgba(196, 139, 54, 0.38);
+  font-family: "Playfair Display", serif;
+  font-size: 1.08rem;
+}
+
+.newsletter-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  background: #f7f1e8;
+}
+
+.newsletter-panel img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.newsletter-panel > div {
+  display: grid;
+  align-content: center;
+  padding: clamp(42px, 7vw, 86px);
+}
+
+.newsletter-panel form {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  max-width: 520px;
+  margin-top: 24px;
+}
+
+.newsletter-panel input,
+.newsletter-panel button {
+  min-height: 52px;
+  border: 1px solid rgba(18, 24, 29, 0.25);
+  background: transparent;
+  padding: 0 18px;
+}
+
+.newsletter-panel button {
+  color: #fff7eb;
+  background: #9b4f32;
+}
+
+.guides-hub-hero {
+  min-height: 650px;
+}
+
+.guides-hub-hero .oc-hero__image {
+  object-position: center 58%;
+}
+
+.guides-hub-hero .oc-hero__shade {
+  background:
+    linear-gradient(90deg, rgba(7, 12, 17, 0.88) 0%, rgba(7, 12, 17, 0.58) 28%, rgba(7, 12, 17, 0.18) 68%, rgba(7, 12, 17, 0.26) 100%),
+    linear-gradient(180deg, rgba(7, 12, 17, 0.58), rgba(7, 12, 17, 0.08) 36%, rgba(7, 12, 17, 0.32));
+}
+
+.guides-hub-nav {
+  min-height: 76px;
+  padding-inline: 40px;
+  background: rgba(9, 14, 18, 0.78);
+  border-bottom-color: rgba(196, 139, 54, 0.35);
+}
+
+.guides-hub-nav .oc-brand {
+  font-size: 2.05rem;
+}
+
+.guides-hub-nav nav {
+  gap: 30px;
+}
+
+.guides-hub-nav nav > span {
+  width: 1px;
+  height: 34px;
+  background: rgba(255, 247, 235, 0.5);
+}
+
+.guides-hub-nav button {
+  position: relative;
+  width: 38px;
+  height: 30px;
+  border: 0;
+  background: transparent;
+}
+
+.guides-hub-nav button::before,
+.guides-hub-nav button::after,
+.guides-hub-nav button i {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 36px;
+  height: 1px;
+  background: rgba(255, 247, 235, 0.86);
+}
+
+.guides-hub-nav button::before {
+  top: 5px;
+}
+
+.guides-hub-nav button i {
+  top: 15px;
+}
+
+.guides-hub-nav button::after {
+  top: 25px;
+}
+
+.guides-hub-hero .oc-hero__content {
+  width: min(1240px, calc(100vw - 96px));
+  padding-top: 178px;
+}
+
+.guides-hub-hero .oc-kicker {
+  display: none;
+}
+
+.guides-hub-hero h1 {
+  max-width: 590px;
+  font-size: clamp(3.9rem, 5.8vw, 5.35rem);
+  line-height: 0.95;
+}
+
+.guides-hub-hero .oc-hero__content > p:last-of-type {
+  max-width: 350px;
+  margin: 26px 0 30px;
+  font-size: 1.15rem;
+}
+
+.guides-hub-hero .filter-row {
+  margin-top: 0;
+}
+
+.guides-hub-hero .filter-row a {
+  min-height: 44px;
+  padding: 0 19px;
+  background: rgba(10, 15, 20, 0.3);
+}
+
+.guides-page .featured-guide {
+  grid-template-columns: 100px minmax(300px, 0.72fr) minmax(520px, 1.1fr);
+  gap: 56px;
+  width: min(1240px, calc(100vw - 90px));
+  padding: 50px 0 46px;
+}
+
+.guides-page .vertical-mark {
+  min-height: 470px;
+}
+
+.guides-page .featured-guide__copy {
+  padding-top: 18px;
+}
+
+.guides-page .featured-guide h2 {
+  max-width: 360px;
+  font-size: 3.15rem;
+  line-height: 1.02;
+}
+
+.guides-page .featured-guide__copy p:not(.oc-kicker) {
+  max-width: 330px;
+  margin: 28px 0;
+  font-size: 1rem;
+}
+
+.guides-page .featured-guide__media,
+.guides-page .featured-guide__media img {
+  min-height: 420px;
+}
+
+.guides-page .featured-guide__media img {
+  border: 0;
+}
+
+.guides-page .guide-index {
+  width: min(1240px, calc(100vw - 90px));
+  padding: 18px 0 42px;
+}
+
+.guides-page .section-title-line {
+  margin-bottom: 28px;
+}
+
+.guides-page .section-title-line h2 {
+  font-size: 3rem;
+}
+
+.guides-page .guide-index__grid {
+  gap: 28px;
+}
+
+.guides-page .guide-tile img {
+  aspect-ratio: 1 / 1.28;
+}
+
+.guides-page .guide-tile h3 {
+  margin-top: -8px;
+  font-size: 1.45rem;
+  line-height: 1.12;
+}
+
+.guides-page .principles-strip {
+  padding: 34px 40px 38px;
+}
+
+.guides-page .principles-strip > div {
+  width: min(1120px, calc(100vw - 90px));
+}
+
+.guides-page .newsletter-panel img {
+  height: 440px;
+  object-fit: contain;
+  object-position: center center;
+  background: #efe5d7;
+}
+
+.guides-page .newsletter-panel > div {
+  padding: 54px 84px;
+}
+
+.guides-page .newsletter-panel h2 {
+  max-width: 500px;
+  font-size: 3.35rem;
+  line-height: 1.08;
+}
+
+.guides-footer {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(420px, 0.95fr) 110px;
+  gap: 48px;
+  align-items: center;
+  padding: 44px 66px 54px;
+  color: #fff7eb;
+  background: #0d1720;
+}
+
+.guides-footer p {
+  margin: 20px 0 0;
+  color: rgba(255, 247, 235, 0.72);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.guides-footer nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 42px;
+}
+
+.guides-footer nav div {
+  display: grid;
+  gap: 8px;
+}
+
+.guides-footer nav span {
+  margin-bottom: 4px;
+  color: #c48b36;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.guides-footer nav a {
+  color: rgba(255, 247, 235, 0.76);
+  font-size: 0.86rem;
+}
+
+.footer-seal {
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  margin-left: auto;
+  border: 1px solid #c48b36;
+  border-radius: 50%;
+  color: #fff7eb;
+  font-family: "Playfair Display", serif;
+  line-height: 1;
+  text-align: center;
+}
+
