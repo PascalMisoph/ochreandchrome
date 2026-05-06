@@ -37,3 +37,11 @@
   padding: 20px 0 72px;
 }
 
+.product-detail__media {
+  min-height: clamp(420px, 48vw, 620px);
+}
+
+.product-detail__media img {
+  max-width: min(82%, 520px);
+}
+

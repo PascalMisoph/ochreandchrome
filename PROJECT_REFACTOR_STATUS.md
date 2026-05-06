@@ -80,7 +80,7 @@ Completed safe P0 fixes:
 - Added `/affiliate-disclosure/` and linked it from the homepage footer, guide footer, and shop disclosure.
 - Removed all sample partner destinations from source data.
 - Converted product detail partner CTAs without verified URLs into a safe disabled state: "Partner Link Pending".
-- Changed shop and guide product listing CTAs from "View at Partner" to "View Details" where they route internally.
+- Changed shop and guide product listing CTAs from the old partner wording to "View Details" where they route internally.
 - Fixed homepage trend panel season to match `Spring / Summer 2026`.
 - Replaced misleading homepage footer category anchors with real shop category anchors.
 - Split shop product categories into valid anchored sections: `#furniture`, `#lighting`, `#decor`, `#textiles`.
@@ -88,7 +88,7 @@ Completed safe P0 fixes:
 - Replaced generic Pinterest link with the verified repo handle route `https://www.pinterest.com/ochreandchrome/`.
 - Replaced generic Instagram link with a mailto fallback because no verified Instagram URL exists in the repo.
 - Disabled newsletter/signup controls and changed their copy to "Newsletter coming soon" / "Coming Soon" so they no longer imply a working signup flow.
-- Changed trend report CTA from "Get the Report" to "Request the Report" because it currently uses email rather than an automated download flow.
+- Changed trend report CTA to "Request the Report" because it currently uses email rather than an automated download flow.
 
 Unresolved P0 items requiring human/legal input before launch:
 
@@ -109,7 +109,7 @@ P0 validation performed:
 
 - `npm run build` passes and generates 23 static pages.
 - Source/repo search found no remaining sample partner domains, old trend-report season label, or former temporary legal phrases.
-- Active site search found no misleading `View at Partner`, `Get the Report`, generic Instagram URL, generic Pinterest homepage URL, or old shipping/artisan/trade footer claims.
+- Active site search found no misleading old partner CTA, old report CTA, generic Instagram URL, generic Pinterest homepage URL, or old shipping/artisan/trade footer claims.
 - Built internal route/anchor check found no broken internal page or anchor targets, excluding generated Astro asset links.
 
 ## Architecture Refactor Progress
@@ -167,6 +167,62 @@ Architecture validation performed:
 - Static route count remains 23 pages.
 - Component and page line-count audit completed.
 - Guard search completed for sample partner domains, old trend-report season text, misleading partner CTA text, old report CTA text, and misleading newsletter/signup promises.
+
+## Visual Polish Progress
+
+Completed existing-style visual fixes:
+
+- Preserved the current Ochre & Chrome art direction; no redesign or new visual language was introduced.
+- Homepage:
+  - Reduced fragile desktop hero height from fixed oversized minima to viewport-aware clamps.
+  - Reduced mobile first-viewport excess whitespace around hero and newsletter card.
+  - Normalized homepage section rhythm with clamp-based spacing.
+  - Added consistent fallback media backgrounds for editorial/product imagery.
+  - Improved trend image focal point and mobile aspect behavior.
+- Guides hub:
+  - Kept existing editorial hero and card system.
+  - Added consistent image fallback backgrounds.
+  - Clarified disabled newsletter controls visually without re-enabling signup promises.
+- Guide detail pages:
+  - Added safer image fallback treatment for hero, article images, next guides, and shop-layer cards.
+  - Adjusted guide hero image focal point to reduce awkward cropping.
+  - Tightened shop-layer card alignment.
+- Shop and product pages:
+  - Added consistent media backgrounds for cart hero, featured collection, product cards, and shop-look images.
+  - Reduced product detail media height fragility with responsive clamps.
+  - Improved commerce-card image focal points.
+- Trend report:
+  - Added consistent image fallback backgrounds.
+  - Improved chapter image focal point behavior.
+- Journal/about/legal pages:
+  - Journal cards now use the same warm editorial paper treatment as the rest of the site.
+  - Legal pages now use a centered editorial layout, stronger rhythm, and a small ochre rule so they no longer feel like bare prototype pages.
+  - Mobile legal pages use reduced type and tighter page width to avoid awkward oversized text.
+
+Responsive QA performed:
+
+- Captured screenshots for the requested key routes at 390px, 768px, 1024px, and 1440px.
+- Screenshot output was written to `03-Website/astro-site/visual-qa-polish/` and ignored in Git as QA artifact output.
+- Manually inspected representative critical screenshots:
+  - `390-home.png`
+  - `390-guides.png`
+  - `390-products-vale-velvet-chair.png`
+  - `390-privacy.png`
+  - `1440-home.png`
+
+Visual validation performed:
+
+- `npm run build` passes.
+- Static route count remains 23 pages.
+- Guard search found no accidental reintroduction of sample partner domains, old trend-report season text, misleading partner CTA text, old report CTA text, or misleading newsletter/signup promises.
+- Line-count audit confirms no Astro component exceeds 200 lines.
+
+Remaining visual risks:
+
+- Full screenshot review across all 48 generated captures has not been exhaustively annotated; the representative set looked stable.
+- Existing source imagery limits some exact crop quality. Current fixes improve framing but do not replace assets.
+- `home.css`, `responsive-editorial.css`, `guides-detail.css`, `responsive.css`, and `guides.css` remain large style modules and should receive deeper cleanup during a later visual-system pass.
+- The live site still needs a final human browser review on real devices after legal data and final content are supplied.
 
 Remaining lower-priority refactor/UI tasks are unchanged below and should be handled after P0 legal data is supplied.
 

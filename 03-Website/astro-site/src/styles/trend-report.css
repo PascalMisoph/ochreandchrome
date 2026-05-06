@@ -150,3 +150,13 @@
   background: #101820;
 }
 
+.trend-hero > img,
+.trend-chapter img,
+.report-download img {
+  background: #e8ded0;
+}
+
+.trend-chapter img {
+  object-position: center 50%;
+}
+

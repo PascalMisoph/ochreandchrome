@@ -137,3 +137,18 @@
 .shop-look img {
   max-height: 520px;
 }
+
+.cart-hero img,
+.featured-collection img,
+.commerce-card img,
+.shop-look img {
+  background: #e8ded0;
+}
+
+.product-showroom + .product-showroom {
+  padding-top: 0;
+}
+
+.commerce-card img {
+  object-position: center 48%;
+}

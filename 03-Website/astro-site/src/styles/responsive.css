@@ -363,3 +363,53 @@ body {
 }
 
 /* Editorial subpage system */
+
+@media (max-width: 820px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 44px;
+  }
+
+  .hero__content {
+    min-height: 0;
+  }
+
+  .hero-copy {
+    padding-top: clamp(68px, 15vw, 96px);
+  }
+
+  .lead-card {
+    margin-top: 44px;
+  }
+
+  .section,
+  .intro-grid {
+    padding-top: 70px;
+  }
+
+  .trend-feature {
+    min-height: 0;
+  }
+
+  .trend-feature img {
+    aspect-ratio: 1 / 1.05;
+  }
+
+  .site-footer {
+    margin-top: 72px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-copy h1 {
+    font-size: clamp(3.3rem, 15vw, 4.05rem);
+  }
+
+  .hero-actions {
+    width: min(100%, 260px);
+  }
+
+  .lead-card {
+    width: min(100%, 340px);
+  }
+}

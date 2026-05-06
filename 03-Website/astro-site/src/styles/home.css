@@ -738,3 +738,44 @@
   flex-wrap: wrap;
 }
 
+/* Visual polish pass: keep the current style, reduce fragile space and crops. */
+.hero {
+  min-height: clamp(760px, 82vh, 980px);
+}
+
+.hero__content {
+  min-height: clamp(680px, 76vh, 840px);
+}
+
+.hero-copy {
+  padding-top: clamp(110px, 13vh, 150px);
+}
+
+.section {
+  padding-top: clamp(82px, 8vw, 118px);
+}
+
+.intro-grid {
+  padding-top: clamp(112px, 12vw, 150px);
+}
+
+.aesthetic-card img,
+.guide-card img,
+.social-grid img,
+.product-card__media,
+.trend-feature img {
+  background: #e8ded0;
+}
+
+.product-card__media {
+  min-height: clamp(280px, 28vw, 330px);
+}
+
+.trend-feature {
+  min-height: clamp(520px, 54vw, 720px);
+}
+
+.trend-feature img {
+  object-position: center 54%;
+}
+

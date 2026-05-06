@@ -399,3 +399,18 @@
   font-family: "Playfair Display", serif;
   font-size: 1.35rem;
 }
+
+.article-hero img,
+.article-section img,
+.next-guides img,
+.shop-layer img {
+  background: #e8ded0;
+}
+
+.article-hero img {
+  object-position: center 48%;
+}
+
+.shop-layer article {
+  align-content: start;
+}

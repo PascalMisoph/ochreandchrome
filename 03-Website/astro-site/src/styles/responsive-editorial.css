@@ -558,3 +558,43 @@
     padding: 52px 0 46px;
   }
 }
+
+@media (max-width: 980px) {
+  .oc-hero,
+  .trend-hero {
+    min-height: clamp(520px, 76vh, 680px);
+  }
+
+  .product-detail__media {
+    min-height: 0;
+    aspect-ratio: 1 / 0.86;
+  }
+}
+
+@media (max-width: 640px) {
+  .oc-hero,
+  .trend-hero {
+    min-height: 540px;
+  }
+
+  .oc-hero__content,
+  .trend-hero > div:last-child {
+    padding-top: 128px;
+  }
+
+  .legal-page {
+    width: calc(100vw - 32px);
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 38px 0 58px;
+  }
+
+  .legal-page h1 {
+    margin-top: 42px;
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
+  .legal-page p:not(.oc-kicker) {
+    font-size: 1rem;
+  }
+}

@@ -99,3 +99,21 @@
   line-height: 1.78;
 }
 
+.journal-page,
+.post-page {
+  padding-top: clamp(44px, 7vw, 72px);
+}
+
+.journal-hero,
+.post-article header {
+  padding-top: clamp(48px, 7vw, 72px);
+}
+
+.journal-card {
+  background: #fbf7ef;
+}
+
+.journal-card img {
+  background: #e8ded0;
+}
+

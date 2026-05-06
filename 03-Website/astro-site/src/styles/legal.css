@@ -21,3 +21,24 @@
   line-height: 1.7;
 }
 
+.legal-page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(56px, 8vw, 92px) 0;
+}
+
+.legal-page::before {
+  content: "";
+  width: 74px;
+  height: 1px;
+  margin: 42px 0 0;
+  background: var(--ochre);
+}
+
+.legal-page h1,
+.legal-page p:not(.oc-kicker) {
+  max-width: 680px;
+}
+

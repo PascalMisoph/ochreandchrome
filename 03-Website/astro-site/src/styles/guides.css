@@ -4,6 +4,18 @@
   padding: 20px 0 92px;
 }
 
+.guide-tile img,
+.featured-guide__media img,
+.newsletter-panel img {
+  background: #e8ded0;
+}
+
+.newsletter-panel input:disabled,
+.newsletter-panel button:disabled {
+  cursor: not-allowed;
+  opacity: 0.82;
+}
+
 .section-title-line {
   display: flex;
   align-items: center;
