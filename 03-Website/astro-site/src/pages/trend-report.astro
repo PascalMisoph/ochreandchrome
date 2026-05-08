@@ -24,7 +24,6 @@ import { materialForecast, trendChapters } from "../data/site";
       {trendChapters.map((chapter, index) => (
         <article class={`trend-chapter ${index % 2 === 1 ? "is-reversed" : ""}`} id={chapter.slug}>
           <div class="trend-chapter__copy">
-            <span>{chapter.number}</span>
             <div>
               <h2>{chapter.title}</h2>
               <p>{chapter.body}</p>

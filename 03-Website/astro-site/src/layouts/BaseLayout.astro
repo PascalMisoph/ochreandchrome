@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import CookieConsent from "../components/CookieConsent.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 const {
   title = "Ochre & Chrome | Design With Depth",
@@ -30,5 +32,7 @@ const {
   </head>
   <body>
     <slot />
+    <SiteFooter />
+    <CookieConsent />
   </body>
 </html>

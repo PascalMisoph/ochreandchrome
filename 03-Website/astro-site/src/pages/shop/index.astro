@@ -6,10 +6,16 @@ import SiteHeader from "../../components/SiteHeader.astro";
 import { products } from "../../data/site";
 
 const categories = ["Furniture", "Lighting", "Decor", "Textiles"];
-const productsByCategory = categories.map((category) => ({
-  category,
-  items: products.filter((product) => product.category === category)
-}));
+const seenCategories = new Set();
+const productGrid = products.map((product) => {
+  const isFirstInCategory = !seenCategories.has(product.category);
+  seenCategories.add(product.category);
+
+  return {
+    product,
+    anchorId: isFirstInCategory ? product.category.toLowerCase() : undefined
+  };
+});
 ---
 
 <BaseLayout
@@ -45,13 +51,11 @@ const productsByCategory = categories.map((category) => ({
       <img src="/homepage-generated-assets-hires/hero-interior.png" alt="" />
     </section>
 
-    {productsByCategory.map(({ category, items }) => (
-      <section class="product-showroom" id={category.toLowerCase()} aria-label={category}>
-        {items.map((product) => (
-          <ProductCard product={product} variant="commerce" />
-        ))}
-      </section>
-    ))}
+    <section class="product-showroom" aria-label="Product grid">
+      {productGrid.map(({ product, anchorId }) => (
+        <ProductCard product={product} variant="commerce" anchorId={anchorId} />
+      ))}
+    </section>
 
     <AffiliateDisclosure />
 
@@ -64,5 +68,6 @@ const productsByCategory = categories.map((category) => ({
       </div>
       <img src="/homepage-generated-assets-hires/testimonial-vignette.png" alt="" />
     </section>
+
   </main>
 </BaseLayout>

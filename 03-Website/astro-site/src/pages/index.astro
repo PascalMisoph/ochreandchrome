@@ -3,8 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import GuideCard from "../components/GuideCard.astro";
 import NewsletterSignup from "../components/NewsletterSignup.astro";
 import ProductCard from "../components/ProductCard.astro";
-import SiteFooter from "../components/SiteFooter.astro";
-import { aesthetics, homepageGuides, homepageProducts, navItems, socials, trendItems } from "../data/home";
+import SiteHeader from "../components/SiteHeader.astro";
+import { aesthetics, homepageGuides, homepageProducts, socials, trendItems } from "../data/home";
 
 ---
 
@@ -18,22 +18,8 @@ import { aesthetics, homepageGuides, homepageProducts, navItems, socials, trendI
         />
       </div>
       <div class="hero__overlay"></div>
+      <SiteHeader variant="overlay" className="home-nav" />
       <div class="hero__inner">
-        <header class="topbar">
-          <a href="/" class="brand">
-            <span>Ochre</span>
-            <span>&amp; Chrome</span>
-          </a>
-          <nav class="topnav" aria-label="Primary">
-            {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
-          </nav>
-          <div class="topbar__tools" aria-hidden="true">
-            <span class="tool tool--search"></span>
-            <span class="tool tool--save"></span>
-            <span class="tool tool--cart"></span>
-          </div>
-        </header>
-
         <div class="hero__content">
           <div class="hero-copy">
             <h1>Design With Depth.</h1>
@@ -47,16 +33,6 @@ import { aesthetics, homepageGuides, homepageProducts, navItems, socials, trendI
             </div>
           </div>
 
-          <aside class="lead-card">
-            <div class="lead-card__body">
-              <h2>Design with intention.</h2>
-              <p>
-                Receive our free guide with expert principles, timeless ideas, and a curated
-                starter checklist.
-              </p>
-              <NewsletterSignup buttonClass="button button--primary button--full" />
-            </div>
-          </aside>
         </div>
       </div>
     </section>
@@ -147,8 +123,8 @@ import { aesthetics, homepageGuides, homepageProducts, navItems, socials, trendI
     <section class="section social-section">
       <div class="section-heading section-heading--split">
         <div>
-          <span class="eyebrow">Design in Real Life</span>
-          <h2>Follow along @ochreandchrome</h2>
+          <span class="eyebrow">Pinterest</span>
+          <h2>Follow @ochreandchrome on Pinterest</h2>
         </div>
         <div class="social-notes">
           <span>Curated with Intention</span>
@@ -162,8 +138,18 @@ import { aesthetics, homepageGuides, homepageProducts, navItems, socials, trendI
           <img src={social} alt={`Editorial interior detail ${index + 1}`} />
         ))}
       </div>
+
+      <aside class="lead-card">
+        <div class="lead-card__body">
+          <h2>Design with intention.</h2>
+          <p>
+            Receive our free guide with expert principles, timeless ideas, and a curated
+            starter checklist.
+          </p>
+          <NewsletterSignup buttonClass="button button--primary button--full" />
+        </div>
+      </aside>
     </section>
 
-    <SiteFooter />
   </main>
 </BaseLayout>

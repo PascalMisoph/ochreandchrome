@@ -1,20 +1,77 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
 ---
 
-<BaseLayout title="Impressum | Ochre & Chrome" description="Impressum and contact information for Ochre & Chrome.">
-  <main class="legal-page">
-    <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
-    <p class="oc-kicker">Legal</p>
-    <h1>Impressum</h1>
-    <p>
-      Ochre & Chrome is an editorial interior design publication. Verified contact information
-      currently available in this repository: hello@ochreandchrome.com.
-    </p>
-    <p>
-      Legal operator name, postal address, responsible person, business registration, VAT/tax
-      details, and jurisdiction-specific disclosures have not been provided in the repository and
-      must be supplied by a human owner before launch.
-    </p>
+<BaseLayout title="Impressum | Ochre & Chrome" description="Legal notice and provider information for Ochre & Chrome.">
+  <main class="editorial-page legal-page legal-page--structured">
+    <SiteHeader />
+
+    <section class="legal-hero">
+      <p class="oc-kicker">Legal Notice</p>
+      <h1>Impressum</h1>
+      <p>Provider information according to Section 5 German Digital Services Act (DDG).</p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Service Provider</h2>
+      <p>
+        Pascal Misoph<br />
+        Holbeinstr. 7<br />
+        01307 Dresden<br />
+        Germany
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:hello@ochreandchrome.com">hello@ochreandchrome.com</a>
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Responsible for Editorial Content</h2>
+      <p>
+        Pascal Misoph<br />
+        Holbeinstr. 7<br />
+        01307 Dresden<br />
+        Germany
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Commercial Communication</h2>
+      <p>
+        Editorial product mentions and affiliate references are identified where applicable. Affiliate
+        links are not active until verified partner destinations are added.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Liability for Content</h2>
+      <p>
+        The content on this website is created with care. However, no guarantee is given for the
+        accuracy, completeness, or currentness of editorial information, product references, prices,
+        availability, or external partner information.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Liability for Links</h2>
+      <p>
+        This website may contain links to external websites. The respective providers are responsible
+        for their own content. External links are reviewed when added; ongoing monitoring without
+        specific indication of unlawful content is not reasonable.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>Copyright</h2>
+      <p>
+        Texts, images, layouts, and other content on this website are protected by copyright unless
+        otherwise indicated. Use beyond statutory permissions requires prior written consent.
+      </p>
+    </section>
   </main>
 </BaseLayout>

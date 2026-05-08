@@ -1,7 +1,8 @@
 ---
 const {
   product,
-  variant = "home"
+  variant = "home",
+  anchorId = undefined
 } = Astro.props;
 
 const href = `/products/${product.slug}/`;
@@ -9,7 +10,7 @@ const href = `/products/${product.slug}/`;
 
 {
   variant === "commerce" ? (
-    <article class="commerce-card">
+    <article class="commerce-card" id={anchorId}>
       <a href={href}>
         <img src={product.image} alt={product.title} />
       </a>

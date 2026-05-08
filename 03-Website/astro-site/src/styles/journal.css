@@ -1,28 +1,93 @@
-﻿.journal-page,
+.journal-page,
+.about-page {
+  padding: 0;
+}
+
 .post-page {
   width: var(--page-width);
   margin: 0 auto;
-  padding: 72px 0 120px;
+  padding: clamp(44px, 7vw, 72px) 0 120px;
 }
 
 .journal-hero,
-.post-article header {
-  max-width: 760px;
-  padding: 72px 0 56px;
+.about-hero,
+.about-story {
+  width: var(--page-width);
+  margin: 0 auto;
 }
 
-.journal-back {
-  display: inline-flex;
-  margin-bottom: 46px;
-  color: var(--ochre);
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+.journal-hero {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.72fr) minmax(420px, 1fr);
+  gap: clamp(34px, 5vw, 70px);
+  align-items: center;
+  padding: clamp(64px, 8vw, 104px) 0 clamp(50px, 7vw, 82px);
+}
+
+.journal-hero > div,
+.about-hero__copy {
+  max-width: 620px;
+}
+
+.journal-hero img {
+  width: 100%;
+  aspect-ratio: 1.22 / 1;
+  object-fit: cover;
+  background: #e8ded0;
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.78fr) minmax(460px, 1fr);
+  gap: clamp(36px, 5.5vw, 78px);
+  align-items: stretch;
+  padding: clamp(58px, 7vw, 96px) 0 clamp(54px, 7vw, 88px);
+}
+
+.about-hero__copy {
+  display: grid;
+  align-content: center;
+  padding: clamp(34px, 5vw, 64px);
+  border: 1px solid rgba(18, 24, 29, 0.1);
+  background: #fbf7ef;
+}
+
+.about-hero img {
+  width: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  object-position: center;
+  background: #e8ded0;
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.45fr);
+  gap: clamp(34px, 5vw, 68px);
+  align-items: center;
+  padding-bottom: clamp(76px, 9vw, 120px);
+}
+
+.about-story > div {
+  display: grid;
+  gap: 24px;
+  max-width: 720px;
+}
+
+.about-story img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #e8ded0;
+}
+
+.post-article header {
+  max-width: 760px;
+  padding: clamp(48px, 7vw, 72px) 0 56px;
 }
 
 .journal-hero h1,
+.about-hero h1,
 .post-article h1 {
   margin: 16px 0 20px;
   color: var(--navy);
@@ -32,6 +97,8 @@
 }
 
 .journal-hero p,
+.about-hero p,
+.about-story p,
 .post-article header p,
 .journal-empty {
   margin: 0;
@@ -43,6 +110,9 @@
 .journal-list {
   display: grid;
   gap: 24px;
+  width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 0 clamp(82px, 9vw, 120px);
 }
 
 .journal-card {
@@ -52,13 +122,14 @@
   align-items: center;
   padding: 24px;
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.32);
+  background: #fbf7ef;
 }
 
 .journal-card img {
   aspect-ratio: 4 / 3;
   width: 100%;
   object-fit: cover;
+  background: #e8ded0;
 }
 
 .journal-card h2 {
@@ -98,22 +169,3 @@
   font-size: 1.1rem;
   line-height: 1.78;
 }
-
-.journal-page,
-.post-page {
-  padding-top: clamp(44px, 7vw, 72px);
-}
-
-.journal-hero,
-.post-article header {
-  padding-top: clamp(48px, 7vw, 72px);
-}
-
-.journal-card {
-  background: #fbf7ef;
-}
-
-.journal-card img {
-  background: #e8ded0;
-}
-

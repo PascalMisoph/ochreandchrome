@@ -2,8 +2,7 @@
 const {
   current = "",
   variant = "light",
-  className = "",
-  compactGuides = false
+  className = ""
 } = Astro.props;
 
 const navItems = [
@@ -15,25 +14,30 @@ const navItems = [
 ];
 
 const headerClass = ["oc-nav", `oc-nav--${variant}`, className].filter(Boolean).join(" ");
+const navId = `primary-nav-${Math.random().toString(36).slice(2)}`;
 ---
 
 <header class={headerClass}>
-  <a href="/" class="oc-brand">Ochre <span>&amp;</span> Chrome</a>
-  {
-    compactGuides ? (
-      <nav aria-label="Primary">
-        <a href="/guides/" aria-current={current === "guides" ? "page" : undefined}>Guides</a>
-        <span aria-hidden="true"></span>
-        <button type="button" aria-label="Menu"><i></i></button>
-      </nav>
-    ) : (
-      <nav aria-label="Primary">
-        {navItems.map((item) => (
-          <a href={item.href} aria-current={current === item.key ? "page" : undefined}>
-            {item.label}
-          </a>
-        ))}
-      </nav>
-    )
-  }
+  <a href="/" class="oc-brand" data-astro-reload>Ochre <span>&amp;</span> Chrome</a>
+  <button class="oc-nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls={navId}>
+    <i></i>
+  </button>
+  <nav id={navId} aria-label="Primary">
+    {navItems.map((item) => (
+      <a href={item.href} aria-current={current === item.key ? "page" : undefined}>
+        {item.label}
+      </a>
+    ))}
+  </nav>
 </header>
+
+<script>
+  document.querySelectorAll(".oc-nav__toggle").forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const header = toggle.closest(".oc-nav");
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!expanded));
+      header?.classList.toggle("is-open", !expanded);
+    });
+  });
+</script>

@@ -204,18 +204,13 @@
 }
 
 .lead-card {
-  position: absolute;
-  right: 44px;
-  bottom: 62px;
-  display: grid;
-  grid-template-columns: minmax(320px, 1fr);
-  align-items: end;
+  width: min(440px, 100%);
+  margin: 34px auto 0;
 }
 
 .lead-card__body {
   width: 100%;
-  max-width: 440px;
-  padding: 42px 38px 34px;
+  padding: 34px 34px 30px;
   background: rgba(246, 241, 232, 0.98);
   color: var(--ink);
   box-shadow: var(--shadow-soft);
@@ -369,6 +364,7 @@
 
 .guide-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
 }
 
 .guide-card img {
@@ -377,9 +373,26 @@
   object-fit: cover;
 }
 
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.guide-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 .guide-card h3 {
   font-size: 1.95rem;
   line-height: 1.03;
+}
+
+.guide-card .inline-link {
+  margin-top: auto;
+  padding-top: 20px;
 }
 
 .metrics-strip {
@@ -629,13 +642,17 @@
 
 .social-notes {
   display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
+  gap: clamp(14px, 2vw, 24px);
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
   color: rgba(26, 42, 58, 0.66);
   font-family: "Montserrat", sans-serif;
-  font-size: 0.74rem;
+  font-size: 0.62rem;
+  line-height: 1.15;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .social-grid {
@@ -675,20 +692,6 @@
 .footer-brand p {
   max-width: 310px;
   color: rgba(247, 245, 240, 0.72);
-}
-
-.footer-social {
-  display: flex;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.footer-social a {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(247, 245, 240, 0.2);
 }
 
 .footer-columns {
@@ -736,6 +739,22 @@
   display: flex;
   gap: 22px;
   flex-wrap: wrap;
+}
+
+.social-section .section-heading--split {
+  padding: 22px clamp(22px, 3vw, 34px);
+  border: 1px solid rgba(26, 42, 58, 0.1);
+  background: #fbf7ef;
+}
+
+.social-section .eyebrow {
+  color: #bd081c;
+}
+
+.social-section h2 {
+  max-width: none;
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  white-space: nowrap;
 }
 
 /* Visual polish pass: keep the current style, reduce fragile space and crops. */

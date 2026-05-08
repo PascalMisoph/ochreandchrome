@@ -1,9 +1,33 @@
 ﻿@media (max-width: 980px) {
   .oc-nav {
-    align-items: flex-start;
-    flex-direction: column;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .oc-nav__toggle {
+    display: block;
+  }
+
+  .oc-nav nav {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 12px clamp(24px, 5vw, 64px) 22px;
+    background: #0f1921;
+    border-bottom: 1px solid rgba(196, 139, 54, 0.35);
+  }
+
+  .oc-nav.is-open nav {
+    display: grid;
+  }
+
+  .oc-nav nav a {
+    padding: 14px 0;
+    border-top: 1px solid rgba(255, 247, 235, 0.12);
   }
 
   .featured-guide,
@@ -16,6 +40,9 @@
   .report-download,
   .cart-hero,
   .featured-collection,
+  .journal-hero,
+  .about-hero,
+  .about-story,
   .shop-look,
   .product-detail,
   .full-guide-cta {
@@ -117,6 +144,7 @@
   }
 
   .guide-index__grid,
+  .journal-card,
   .principles-strip > div,
   .newsletter-panel,
   .article-intro,
@@ -166,7 +194,8 @@
 
   .cart-hero {
     min-height: 0;
-    padding-top: 24px;
+    padding-top: 28px;
+    padding-bottom: 28px;
   }
 
   .cart-hero img {
@@ -193,22 +222,53 @@
     grid-template-columns: 1fr;
   }
 
-  .article-section--swatches,
-  .material-stack {
+  .article-section--swatches {
     grid-template-columns: 1fr;
+  }
+
+  .material-stack {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .oc-nav {
     gap: 16px;
-    min-height: 0;
-    padding: 18px 20px;
+    min-height: 70px;
+    padding: 0 20px;
   }
 
   .article-hero,
   .article-shell,
+  .journal-hero,
+  .journal-list,
+  .about-hero,
+  .about-story,
   .shop-layer,
   .next-guides {
     width: calc(100vw - 32px);
+  }
+
+  .journal-hero,
+  .about-hero {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  .journal-card {
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .about-hero__copy {
+    padding: 28px 22px;
+  }
+
+  .about-hero img {
+    min-height: 0;
+    aspect-ratio: 1 / 0.86;
+  }
+
+  .about-story {
+    padding-bottom: 58px;
   }
 
   .article-hero {
@@ -285,14 +345,8 @@
 
 @media (max-width: 720px) {
   .guides-hub-nav {
-    min-height: 136px;
-    align-items: flex-start;
-    padding: 22px 40px 18px;
-  }
-
-  .guides-hub-nav nav {
-    width: 100%;
-    justify-content: flex-start;
+    min-height: 76px;
+    padding: 0 40px;
   }
 
   .guides-hub-hero {
@@ -354,7 +408,7 @@
   }
 
   .guides-page .principles-strip > div {
-    width: calc(100vw - 48px);
+    width: 100%;
     grid-template-columns: 1fr;
   }
 
@@ -375,15 +429,6 @@
     font-size: 2.65rem;
   }
 
-  .guides-footer {
-    grid-template-columns: 1fr;
-    padding: 42px 24px;
-  }
-
-  .guides-footer nav {
-    grid-template-columns: 1fr;
-  }
-
   .footer-seal {
     margin-left: 0;
   }
@@ -399,7 +444,7 @@
   }
 
   .lead-card {
-    width: min(420px, 100%);
+    width: min(420px, calc(100vw - 36px));
     margin-left: auto;
     margin-right: auto;
   }
@@ -425,11 +470,9 @@
   }
 
   .lead-card {
-    position: relative;
-    right: auto;
-    bottom: auto;
+    position: static;
     width: min(100%, 360px);
-    margin: 52px auto 0;
+    margin: 28px auto 0;
   }
 
   .lead-card__body {
@@ -447,6 +490,10 @@
 @media (max-width: 640px) {
   .article-hero,
   .article-shell,
+  .journal-hero,
+  .journal-list,
+  .about-hero,
+  .about-story,
   .shop-layer,
   .next-guides {
     width: calc(100vw - 28px);
@@ -526,13 +573,18 @@
     font-size: clamp(3.6rem, 16vw, 4.45rem);
   }
 
+  .social-section h2 {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    white-space: nowrap;
+  }
+
   .lead-card {
     width: min(100%, 342px);
   }
 
   .guides-hub-nav {
-    min-height: 122px;
-    padding: 18px 24px 16px;
+    min-height: 72px;
+    padding: 0 24px;
   }
 
   .guides-hub-hero {
@@ -549,8 +601,7 @@
   }
 
   .guides-page .featured-guide,
-  .guides-page .guide-index,
-  .guides-page .principles-strip > div {
+  .guides-page .guide-index {
     width: calc(100vw - 32px);
   }
 
@@ -596,5 +647,55 @@
 
   .legal-page p:not(.oc-kicker) {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .hero {
+    min-height: 760px;
+  }
+
+  .hero__content {
+    min-height: 690px;
+  }
+
+  .hero-copy {
+    padding-top: 160px;
+  }
+
+  .hero__media img {
+    object-position: 60% 38%;
+  }
+}
+
+@media (max-width: 640px) {
+  .guides-hub-hero.oc-hero {
+    min-height: 720px;
+  }
+
+  .guides-hub-hero .filter-row {
+    margin-bottom: 38px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    min-height: 730px;
+  }
+
+  .hero__content {
+    min-height: 660px;
+  }
+
+  .hero-copy {
+    padding-top: 166px;
+  }
+
+  .hero__media img {
+    object-position: 64% 34%;
+  }
+
+  .guides-hub-hero.oc-hero {
+    min-height: 730px;
   }
 }

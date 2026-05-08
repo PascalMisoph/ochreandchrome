@@ -1,0 +1,132 @@
+<div class="cookie-consent" data-cookie-consent hidden>
+  <div class="cookie-consent__panel" role="dialog" aria-modal="false" aria-labelledby="cookie-consent-title">
+    <div class="cookie-consent__copy">
+      <p class="oc-kicker">Privacy Settings</p>
+      <h2 id="cookie-consent-title">Cookie preferences</h2>
+      <p>
+        We use essential storage to remember your privacy choice. Optional analytics or marketing
+        storage will only be used if you allow it.
+      </p>
+    </div>
+
+    <form class="cookie-consent__options" data-cookie-options hidden>
+      <label>
+        <input type="checkbox" checked disabled />
+        <span>
+          <strong>Essential</strong>
+          Required for saving your cookie preference.
+        </span>
+      </label>
+      <label>
+        <input type="checkbox" name="analytics" />
+        <span>
+          <strong>Analytics</strong>
+          Helps understand site usage if analytics are added.
+        </span>
+      </label>
+      <label>
+        <input type="checkbox" name="marketing" />
+        <span>
+          <strong>Marketing</strong>
+          Allows marketing or affiliate measurement if added.
+        </span>
+      </label>
+    </form>
+
+    <div class="cookie-consent__actions">
+      <button type="button" data-cookie-essential>Essential only</button>
+      <button type="button" data-cookie-customize>Customize</button>
+      <button type="button" data-cookie-save hidden>Save choices</button>
+      <button type="button" data-cookie-accept>Accept all</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const consentKey = "ochreChromeCookieConsent";
+  const consentVersion = 1;
+
+  const banner = document.querySelector("[data-cookie-consent]");
+  const options = document.querySelector("[data-cookie-options]");
+  const customizeButton = document.querySelector("[data-cookie-customize]");
+  const saveButton = document.querySelector("[data-cookie-save]");
+  const acceptButton = document.querySelector("[data-cookie-accept]");
+  const essentialButton = document.querySelector("[data-cookie-essential]");
+
+  const readConsent = () => {
+    try {
+      return JSON.parse(localStorage.getItem(consentKey) || "null");
+    } catch {
+      return null;
+    }
+  };
+
+  const writeConsent = (settings) => {
+    localStorage.setItem(
+      consentKey,
+      JSON.stringify({
+        version: consentVersion,
+        updatedAt: new Date().toISOString(),
+        essential: true,
+        analytics: Boolean(settings.analytics),
+        marketing: Boolean(settings.marketing)
+      })
+    );
+    document.documentElement.dataset.cookiePrefsSaved = "true";
+    banner?.setAttribute("hidden", "");
+  };
+
+  const showBanner = () => {
+    banner?.removeAttribute("hidden");
+  };
+
+  const existingConsent = readConsent();
+  if (!existingConsent || existingConsent.version !== consentVersion) {
+    showBanner();
+  } else {
+    document.documentElement.dataset.cookiePrefsSaved = "true";
+  }
+
+  customizeButton?.addEventListener("click", () => {
+    options?.removeAttribute("hidden");
+    customizeButton.setAttribute("hidden", "");
+    saveButton?.removeAttribute("hidden");
+  });
+
+  essentialButton?.addEventListener("click", () => {
+    writeConsent({ analytics: false, marketing: false });
+  });
+
+  acceptButton?.addEventListener("click", () => {
+    writeConsent({ analytics: true, marketing: true });
+  });
+
+  saveButton?.addEventListener("click", () => {
+    const form = options instanceof HTMLFormElement ? new FormData(options) : new FormData();
+    writeConsent({
+      analytics: form.has("analytics"),
+      marketing: form.has("marketing")
+    });
+  });
+
+  document.querySelectorAll("[data-cookie-settings]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const consent = readConsent();
+      const analytics = options?.querySelector('input[name="analytics"]');
+      const marketing = options?.querySelector('input[name="marketing"]');
+
+      if (analytics instanceof HTMLInputElement) {
+        analytics.checked = Boolean(consent?.analytics);
+      }
+
+      if (marketing instanceof HTMLInputElement) {
+        marketing.checked = Boolean(consent?.marketing);
+      }
+
+      options?.removeAttribute("hidden");
+      customizeButton?.setAttribute("hidden", "");
+      saveButton?.removeAttribute("hidden");
+      showBanner();
+    });
+  });
+</script>
