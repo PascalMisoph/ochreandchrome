@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import { affiliateLinks } from "./src/data/affiliate-links.ts";
+import { affiliateLinks } from "./src/data/affiliate-links.mjs";
 
 // Turn the affiliate cloak map into /recommends/{slug} redirects.
 // Static build emits one redirect page per slug; Vercel serves them as redirects.

@@ -4,10 +4,12 @@
 // raw merchant or Mavely URL. To swap a destination later (e.g. Mavely deactivates a merchant),
 // edit ONE entry here — no article, pin, or component needs to change.
 //
+// Plain .mjs (no TypeScript) so astro.config.mjs can import it with zero transpilation on any
+// platform — avoids the "works locally, errors on Vercel" .ts-config-import trap.
 // Wired into astro.config.mjs `redirects` (static build emits one redirect page per slug).
 // Canonical mapping documented in 05-Affiliates/Affiliate-Content-Opportunities.md §4.
 
-export const affiliateLinks: Record<string, string> = {
+export const affiliateLinks = {
   // --- Article 1: Woven Rattan Pendants (Lampsmodern, 21%) ---
   "lampsmodern-wicker-rattan-pendant": "https://mavely.app.link/p8dyuxc9A3b", // A29
   "lampsmodern-scalloped-rattan-pendant": "https://mavely.app.link/wWVhBCvRA3b", // A21
@@ -50,6 +52,6 @@ export const affiliateLinks: Record<string, string> = {
 };
 
 /** Build the public cloaked path for a product slug (e.g. for use in components). */
-export function recommends(slug: string): string {
+export function recommends(slug) {
   return `/recommends/${slug}`;
 }
