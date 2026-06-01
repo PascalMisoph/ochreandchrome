@@ -1,0 +1,8 @@
+{
+  "pinId": "A1P6",
+  "status": "queued",
+  "lastUpdated": "2026-06-01T00:00:00Z",
+  "outputFile": null,
+  "destinationStatus": "pending-deploy",
+  "history": [{ "status": "queued", "at": "2026-06-01T00:00:00Z" }]
+}

@@ -1,3 +1,15 @@
+---
+id: ai-prompts
+type: reference
+scope: imagery+writing
+agent_readable: true
+canonical_for: [master-image-prompt-7a, world-image-fragments, one-pin-spec-generator]
+required_for: [produce-daily-pin-bundle, repurpose-post-to-8-pins, draft-blog-post]
+last_verified: 2026-06-01
+default_layout: §7.B   # full-bleed image-first pin is the DEFAULT (operator direction 2026-06-01)
+locked_section: §7.A   # §7.A is the text-forward EXCEPTION now, not the default; substitute variables only
+---
+
 # AI Prompt Library
 
 Reusable prompts. Always pair with [[Brand-Voice]] rules.
@@ -6,9 +18,11 @@ Reusable prompts. Always pair with [[Brand-Voice]] rules.
 
 ---
 
-## 7.A — Editorial Pinterest Pin (master image prompt)
+> **⚠ LAYOUT DEFAULT CHANGED — 2026-06-01 (operator direction).** Pins are now **full-bleed editorial images by default** (see **§7.B**). The 5-zone whitespace stack below (§7.A) — top label band, headline band, subline band, image at ~55%, footer banner — is **no longer the default**. Do **not** use the "whitespace → headline → image → whitespace" sandwich as the standard pin. Reach for §7.A only for deliberately text-forward pins (e.g. a trend-report cover). For everything else use §7.B: the photograph fills the frame, and the only chrome is a slim bottom strip carrying `www.ochreandchrome.com`.
 
-Use this formula for **every** Ochre & Chrome pin. Fill the variables, then run as a single ChatGPT Images v2 prompt. The output is a publishable pin — no Canva post-processing needed.
+## 7.A — Editorial Pinterest Pin · 5-zone text-forward layout (EXCEPTION, not default)
+
+Use this formula only for deliberately text-forward pins (trend covers, educational explainers). For the default pin, use §7.B. Fill the variables, then run as a single ChatGPT Images v2 prompt.
 
 > A complete, publication-ready editorial Pinterest pin design for the brand **Ochre & Chrome**. Vertical 2:3 aspect ratio, 1000 by 1500 pixels, mobile-first text hierarchy, premium interior-design-magazine feeling.
 >
@@ -52,6 +66,36 @@ Use this formula for **every** Ochre & Chrome pin. Fill the variables, then run 
 - [[Pin-Example-P03]] — Brass Lighting product roundup, 2×2 product grid, left-aligned headline + numbered quadrants.
 
 When prompting a new pin, copy the §7.A frame from the example closest to the pin's world and format, then swap `{CATEGORY_LABEL}`, `{HEADLINE}`, `{SUBLINE}`, and the Zone 4 image brief.
+
+## 7.B — Full-Bleed Editorial Pin (master image prompt — **DEFAULT**)
+
+Use this for **every** Ochre & Chrome pin unless there is a specific reason to go text-forward (then use §7.A). The output is a single full-bleed editorial photograph with no whitespace text bands — only a slim branded strip along the bottom edge. Fill the variables, run as a single ChatGPT Images v2 prompt.
+
+> A complete, publication-ready **full-bleed** editorial Pinterest pin for the brand **Ochre & Chrome**. Vertical 2:3 aspect ratio, 1000 by 1500 pixels, premium interior-design-magazine feeling. **The photograph fills the entire frame, edge to edge.** There is **no** top label band, **no** headline band, **no** subline band, and **no** large cream footer block. Do not sandwich the image between blocks of empty space. The composition is the photograph itself.
+>
+> **Layout:**
+> 1. **Full-frame hero image (≈92–94% of height, edge to edge).** A premium architectural-digest-style editorial interior photograph filling the whole pin. Subject, materials, palette, lighting, and composition per `{IMAGE_BRIEF}`. Sharp focus on materials, warm natural light, no people, no clutter, depth and atmosphere to the very edges of the frame. This is the pin.
+> 2. **Slim bottom domain strip (≈6–8% of height).** A single thin horizontal strip flush to the bottom edge. Two acceptable treatments: (a) a solid warm-cream `#F7F5F0` strip, or (b) a soft dark-to-transparent gradient scrim rising off the bottom of the photo. Inside it, **horizontally centred and vertically centred, one line only:** `www.ochreandchrome.com` in Montserrat all-caps, widely tracked, in deep navy `#1A2A3A` (on the cream strip) or warm cream `#F7F5F0` (on the gradient scrim). A single small brushed-brass `#D4AF37` dot or hairline rule may precede the domain. **No other text anywhere on the pin.**
+>
+> **Optional integrated headline (use sparingly, only if `{HEADLINE}` is provided and a hook is wanted):** set `{HEADLINE}` directly ON the photograph in the lower third — short editorial serif (Playfair Display feeling), warm cream `#F7F5F0`, over a soft localized gradient scrim so it stays readable, never over a busy area, never in its own separate whitespace band. The headline floats on the image, it does not get its own zone. Skip it entirely for pure-image pins (the headline then lives only in the Pinterest title + description).
+>
+> **Brand visual identity (non-negotiable):**
+> - Palette: warm cream `#F7F5F0`, deep navy `#1A2A3A`, rich ochre `#C48B36`, terracotta `#A95C45`, oatmeal `#E5E0D8`, soft black `#2C2C2C`, brushed brass `#D4AF37` as restrained accent only.
+> - Mood: warm, polished, cinematic, editorial — *Architectural Digest* meets *boutique artisan catalog*. Premium interior-design-magazine feeling. Not playful. Not a SaaS template.
+> - Typography (only on the domain strip and the optional floating headline): editorial serif (Playfair Display) for any headline, all-caps tracked sans (Montserrat) for the domain.
+>
+> **World-specific direction (apply per `{AESTHETIC_WORLD}`):** identical to §7.A — Neo Deco (geometry/glamour/polish), Afrohemian (soul/texture/craft, cultural-care aware), Adire (indigo resist-dye, caption discipline), Brass Lighting (single sculptural fixture, warm pool of light). Drop the matching §7.7–§7.10 fragment into `{IMAGE_BRIEF}`.
+>
+> **Cultural-care for Afrohemian / Adire pins:** No "tribal" anything. No invented cultural origin claims. No authenticity claims for the AI-generated visual itself. See [[Cultural-Care-Guidelines]].
+>
+> **Strict do-not-include list:** no whitespace text bands or cream sandwich layout, no people, no logos other than the `www.ochreandchrome.com` domain on the bottom strip, no neon, no glitter, no cursive or script fonts, no 1980s pastiche, no Vegas-Deco kitsch, no boho-chic clichés, no plastic finishes pretending to be brass, no Canva-template feel, no chaotic overlapping product collages, no embedded text other than the bottom-strip domain and the optional single floating headline.
+>
+> **Image generation parameters:**
+> - `{AESTHETIC_WORLD}`: `Neo Deco` | `Afrohemian` | `Adire` | `Brass Lighting` | `Cross-over fusion`
+> - `{IMAGE_BRIEF}`: 2–4 sentences specifying subject, materials, palette, light direction, composition (this is the whole pin — make it rich)
+> - `{HEADLINE}` (optional): ≤9 words floating headline on the lower third, or leave empty for a pure-image pin
+
+**Output:** a finished, publishable full-bleed Pinterest pin image. Upload directly to Pinterest with the title, description, and alt text from the pin spec — the editorial hook lives in those fields, not in a whitespace band.
 
 ## 7.1 — Blog Writing Prompt
 
