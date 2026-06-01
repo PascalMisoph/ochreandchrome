@@ -3,6 +3,7 @@ title: "The Natural Fiber Rug Guide: Jute, Sisal & Seagrass"
 description: "How to choose, size, layer, and care for a natural fiber rug — the jute vs sisal rules a designer uses, plus five foundation rugs that earn their place."
 publishDate: 2026-06-01
 category: "Afrohemian"
+image: "/ochre-assets/product-capri-woven-rug.png"
 ---
 
 *Ochre & Chrome is reader-supported. When you buy through our links, we may earn an affiliate commission at no extra cost to you. Read our [disclosure](/affiliate-disclosure/).*

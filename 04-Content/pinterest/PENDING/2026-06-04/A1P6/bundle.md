@@ -10,7 +10,7 @@ angle: trend forecast
 primary_board: 2026 Home Decor Trends
 secondary_board: Ochre & Chrome — All Pins
 destination_url: https://www.ochreandchrome.com/journal/woven-rattan-pendant-lights/
-destination_status: pending-deploy
+destination_status: 200          # production live 2026-06-01
 keyword_primary: rattan pendant light
 keywords_secondary:
   - 2026 lighting trend

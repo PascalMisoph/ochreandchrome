@@ -10,7 +10,7 @@ angle: mistake hook
 primary_board: Afrohemian Decor & Interiors
 secondary_board: Ochre & Chrome — All Pins
 destination_url: https://www.ochreandchrome.com/journal/woven-rattan-pendant-lights/
-destination_status: pending-deploy
+destination_status: 200          # production live 2026-06-01
 keyword_primary: rattan pendant light
 keywords_secondary:
   - woven rattan pendant

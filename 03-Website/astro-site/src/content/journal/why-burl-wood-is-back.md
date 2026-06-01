@@ -3,6 +3,7 @@ title: "Why Burl Wood Is Back — and the Brass It Belongs With"
 description: "Burl wood is the material of 2026. Why it returned, how to use it without overdoing it, and six burl-and-brass pieces that anchor a Neo Deco room."
 publishDate: 2026-06-01
 category: "Neo Deco"
+image: "/homepage-generated-assets-hires/aesthetic-neo-deco.png"
 ---
 
 *Ochre & Chrome is reader-supported. When you buy through our links, we may earn an affiliate commission at no extra cost to you. Read our [disclosure](/affiliate-disclosure/).*

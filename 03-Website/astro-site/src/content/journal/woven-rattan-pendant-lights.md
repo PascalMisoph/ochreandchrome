@@ -3,6 +3,7 @@ title: "7 Woven Rattan Pendant Lights for a Warm Room"
 description: "The 7 best woven rattan pendant lights for a warm, layered room — material-first picks with the structural reason each one earns its place."
 publishDate: 2026-06-01
 category: "Afrohemian"
+image: "/ochre-assets/afrohemian-rooms-hero.png"
 ---
 
 *Ochre & Chrome is reader-supported. When you buy through our links, we may earn an affiliate commission at no extra cost to you. Read our [disclosure](/affiliate-disclosure/).*

@@ -3,6 +3,7 @@ title: "Styling Afrohemian Vessels & Baskets: A Designer's Guide"
 description: "The vignette rules that make terracotta vessels and woven baskets look collected, not cluttered — plus six accessible pieces to build warm texture with."
 publishDate: 2026-06-01
 category: "Afrohemian"
+image: "/homepage-generated-assets-hires/product-zola-ceramic-vessel.png"
 ---
 
 *Ochre & Chrome is reader-supported. When you buy through our links, we may earn an affiliate commission at no extra cost to you. Read our [disclosure](/affiliate-disclosure/).*

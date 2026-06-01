@@ -3,6 +3,7 @@ title: "Neo Deco Statement Lighting: 6 Sculptural Picks"
 description: "Six sculptural statement lights that anchor a Neo Deco room — from an iconic chandelier to an under-$100 sleeper, with the structural reason each earns its place."
 publishDate: 2026-06-01
 category: "Neo Deco"
+image: "/homepage-generated-assets-hires/guide-brass-is-back.png"
 ---
 
 *Ochre & Chrome is reader-supported. When you buy through our links, we may earn an affiliate commission at no extra cost to you. Read our [disclosure](/affiliate-disclosure/).*
