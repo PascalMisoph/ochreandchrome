@@ -1,0 +1,21 @@
+{
+  "pinId": "P04",
+  "status": "rendered",
+  "lastUpdated": "2026-05-19T05:40:33.113Z",
+  "outputFile": "C:\\Dev\\ochreandchrome\\99-Inbox\\pins\\PENDING\\2026-05-20\\P04\\pin-final.png",
+  "history": [
+    {
+      "status": "queued",
+      "at": "2026-05-19T20:00:00Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T05:36:11.459Z"
+    },
+    {
+      "status": "rendered",
+      "at": "2026-05-19T05:40:33.113Z"
+    }
+  ],
+  "renderedBy": "Codex CLI"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "ochreandchrome-automation",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "Local automation for Ochre & Chrome — Codex CLI image rendering + Pinterest API posting. Operates against vault at ../04-Content/pinterest/.",
+  "scripts": {
+    "auth": "node scripts/auth-pinterest.mjs",
+    "render-pin": "node scripts/render-pin.mjs",
+    "render-pins": "node scripts/render-pins.mjs",
+    "render-today": "node scripts/render-today.mjs",
+    "produce-and-render-today": "node scripts/produce-and-render-today.mjs",
+    "post-pin": "node scripts/post-pin.mjs",
+    "post-pins": "node scripts/post-pins.mjs",
+    "daily": "node scripts/run-daily.mjs",
+    "list-boards": "node scripts/list-boards.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

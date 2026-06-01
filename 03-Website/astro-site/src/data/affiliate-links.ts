@@ -39,6 +39,14 @@ export const affiliateLinks: Record<string, string> = {
   "cb2-vesper-brass-console": "https://mavely.app.link/urjJ5DUKA3b", // N03
   "cb2-evening-muse-floor-lamp": "https://mavely.app.link/zKVZsa9LA3b", // N01
   "cb2-portal-mirror": "https://mavely.app.link/O89INhkNA3b", // N11
+
+  // --- Article 5: Afrohemian Vessels & Baskets ---
+  "anthropologie-terracotta-vase": "https://mavely.app.link/petxJ6i9A3b", // A34
+  "homedepot-torven-black-amphora": "https://mavely.app.link/Bb82qZr9A3b", // A42
+  "homedepot-seagrass-ribbed-vase": "https://mavely.app.link/5TmFilt9A3b", // A43
+  "athome-wicker-woven-vase": "https://mavely.app.link/WvfTqqB9A3b", // A48
+  "homedepot-woven-basket-set": "https://mavely.app.link/K0O0nGu9A3b", // A44
+  "athome-woven-wall-basket": "https://mavely.app.link/69APeXz9A3b", // A47
 };
 
 /** Build the public cloaked path for a product slug (e.g. for use in components). */

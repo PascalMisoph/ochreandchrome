@@ -157,7 +157,7 @@ Pins must clear [[Pin-Quality-Checklist]]; Afrohemian/rattan pins get the cultur
 - [x] §2 Product cards — Article 1 (7 rattan cards, embedded in draft)
 - [x] §3 Draft Article 1 — `99-Inbox/posts/PENDING/woven-rattan-pendant-lights.md` (cultural-care: **self-audit PASS**, formal reviewer pass still recommended)
 - [x] §4 Publish Article 1 → `src/content/journal/woven-rattan-pendant-lights.md`, build passes, all 7 CTAs cloaked, 0 raw-link leaks
-- [x] §5 Repurpose Article 1 → **8** full-bleed pins (2/day, 2 boards, distinct angles) at `99-Inbox/pins/PENDING/2026-06-0{2..5}/` — **blocked on production deploy** before posting
+- [x] §5 Repurpose Article 1 → **8** full-bleed pins (2/day, 2 boards, distinct angles) at `04-Content/pinterest/PENDING/2026-06-0{2..5}/` — **blocked on production deploy** before posting
 - [x] Pin design rule changed → full-bleed default (§7.B) recorded in AI-Prompts, Visual-Direction, chatgpt-image-prompt-contract
 - [ ] Repeat §2–§5 for Articles 2, 3, 4
 - [ ] Not yet committed to git (still on `main`, uncommitted) — operator decision

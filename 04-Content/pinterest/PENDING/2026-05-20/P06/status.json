@@ -1,0 +1,21 @@
+{
+  "pinId": "P06",
+  "status": "render_failed",
+  "lastUpdated": "2026-05-19T05:49:35.167Z",
+  "outputFile": null,
+  "history": [
+    {
+      "status": "queued",
+      "at": "2026-05-19T20:10:00Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T05:44:35.120Z"
+    },
+    {
+      "status": "render_failed",
+      "at": "2026-05-19T05:49:35.167Z"
+    }
+  ],
+  "error": "timeout"
+}

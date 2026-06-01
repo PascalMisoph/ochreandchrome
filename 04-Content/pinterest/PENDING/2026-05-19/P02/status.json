@@ -1,0 +1,83 @@
+{
+  "pinId": "P02",
+  "status": "rendered",
+  "lastUpdated": "2026-05-19T04:41:22.291Z",
+  "outputFile": "C:\\Dev\\ochreandchrome\\99-Inbox\\pins\\PENDING\\2026-05-19\\P02\\pin-final.png",
+  "history": [
+    {
+      "status": "queued",
+      "at": "2026-05-18T19:43:00Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T04:02:17.353Z"
+    },
+    {
+      "status": "queued",
+      "at": "2026-05-19T04:02:17.362Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T04:03:40.531Z"
+    },
+    {
+      "status": "render_failed",
+      "at": "2026-05-19T04:03:40.858Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T04:12:07.549Z"
+    },
+    {
+      "status": "queued",
+      "at": "2026-05-19T04:12:07.561Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T04:12:49.011Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T04:22:46.246Z"
+    },
+    {
+      "status": "render_failed",
+      "at": "2026-05-19T04:27:46.286Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T04:31:41.090Z"
+    },
+    {
+      "status": "queued",
+      "at": "2026-05-19T04:31:41.104Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T04:31:59.295Z"
+    },
+    {
+      "status": "render_failed",
+      "at": "2026-05-19T04:36:08.134Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T04:38:54.291Z"
+    },
+    {
+      "status": "queued",
+      "at": "2026-05-19T04:38:54.302Z"
+    },
+    {
+      "status": "rendering",
+      "at": "2026-05-19T04:39:19.351Z"
+    },
+    {
+      "status": "rendered",
+      "at": "2026-05-19T04:41:22.291Z"
+    }
+  ],
+  "note": "Cultural-care PASS already stamped in bundle frontmatter; ready for render.",
+  "error": "exit code 0, output file missing",
+  "renderedBy": "Codex CLI"
+}
