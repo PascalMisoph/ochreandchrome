@@ -159,7 +159,12 @@ Pins must clear [[Pin-Quality-Checklist]]; Afrohemian/rattan pins get the cultur
 - [x] §4 Publish Article 1 → `src/content/journal/woven-rattan-pendant-lights.md`, build passes, all 7 CTAs cloaked, 0 raw-link leaks
 - [x] §5 Repurpose Article 1 → **8** full-bleed pins (2/day, 2 boards, distinct angles) at `04-Content/pinterest/PENDING/2026-06-0{2..5}/` — **blocked on production deploy** before posting
 - [x] Pin design rule changed → full-bleed default (§7.B) recorded in AI-Prompts, Visual-Direction, chatgpt-image-prompt-contract
-- [ ] Repeat §2–§5 for Articles 2, 3, 4
-- [ ] Not yet committed to git (still on `main`, uncommitted) — operator decision
+- [x] Articles 2–5 published to `journal` (value-first; CTAs cloaked; build verified):
+  - Neo Deco Statement Lighting · Natural Fiber Rug Guide · Why Burl Wood Is Back · Afrohemian Vessels & Baskets (+6 new cloak slugs)
+  - **29 product CTAs across 5 articles, 30 `/recommends/` redirects, 0 raw-link leaks**
+- [x] Pinterest content relocated → `04-Content/pinterest/` (plan + bundles); automation path + contract + CLAUDE.md updated
+- [x] Committed + pushed to branch `feat/affiliate-monetization-article-1`
+- [ ] **Next:** merge PR → production deploy → confirm article URLs 200 → repurpose Articles 2–5 into pins (8 each) → render + post
+- [ ] Formal `cultural-care-review` pass for Afrohemian articles (1, 3, 5) — self-audit PASS done
 
 See [[Affiliate-Programs]] (networks/links), [[Product-System]] (card format), [[Site-Architecture]] (post template), [[Existing-Board-Audit]] (boards).
