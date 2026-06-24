@@ -1,0 +1,11 @@
+{
+  "pinId": "A6P4",
+  "status": "queued",
+  "lastUpdated": "2026-06-24T00:00:00Z",
+  "outputFile": "04-Content/pinterest/PENDING/2026-06-26/A6P4/pin-final.png",
+  "destinationStatus": "pending-deploy",
+  "layout": "editorial-5-zone",
+  "history": [
+    { "status": "queued", "at": "2026-06-24T00:00:00Z" }
+  ]
+}
