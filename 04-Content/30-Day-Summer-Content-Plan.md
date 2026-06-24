@@ -69,7 +69,16 @@ Shoot it like a high-end interior magazine spread (*Architectural Digest / Élle
 ### Lever 2 — The tasteful floating headline (reliable, dezent)
 A **single short editorial headline floats in the lower third, set directly ON the photograph** (no band, no box, no cream zone) over a naturally darker area so it stays legible — **Playfair Display serif, warm cream `#F7F5F0`, elegant and restrained in size**, exactly like A3P7. Then the slim bottom domain strip: brass `#D4AF37` dot + `WWW.OCHREANDCHROME.COM`. No other text. The real messaging (full title, description, keywords) lives in the **Pinterest title + description fields** from the bundle — never crammed onto the image.
 
-This master block (`{QUIET_LUXURY_ELEVATION}`) is appended to the `{IMAGE_BRIEF}` of every §7.B prompt in this campaign. Both layouts still exist in [[AI-Prompts]]; this campaign uses **only** the full-bleed one.
+### Lever 3 — Click-optimized, on-brand copy (three text layers, never one)
+Text lives in three different places doing three different jobs. Never cram the keyword line onto the image. (Research-backed; sources in §data.)
+
+- **On-image floating headline = the scroll-stopper.** **2–5 words, NO commas or complex punctuation**, a curiosity/benefit hook — *not* the SEO phrase. Short text renders cleanly (long AI headlines get the weird kerning/spacing the operator flagged) **and** hits harder. One or two lines max, even tracking. Restrained power words only (*simple, the one, without, actually, right, finally*); **never** tabloid ("secret", "insane", "obsessed" — off-brand for luxury). Examples: `Warm Without the Weight` · `The One Light` · `Cool Yet Warm` · `Texture Does the Work`.
+- **Pinterest title (≤40 chars) = SEO + specificity.** Front-load the keyword, stay concrete and actionable. Research: a **"middling" concreteness** beats both vague and hyper-specific; odd numbers (7, 5) where natural. Pull from the 75 formulas in [[Headline-Formulas]] (but skip "obsessed"/hype per [[Brand-Voice]]).
+- **Description = aspiration hook → keywords → payoff → CTA → 3 hashtags.** Open by naming the reader's aspiration or frustration (raises save rate), weave secondary keywords naturally, close with the value the article delivers. **Honest, never clickbait** — the pin must deliver what it promises (2026 authenticity rewards this; broken promises tank distribution).
+
+Every pin carries all three, **distinct per pin** — fresh, differentiated pins drive ~90% of Pinterest traffic, so no recycled titles.
+
+This master block (`{QUIET_LUXURY_ELEVATION}`) + the three-layer copy rule applies to every pin in this campaign. Both layouts still exist in [[AI-Prompts]]; this campaign uses **only** the full-bleed one.
 
 ---
 
