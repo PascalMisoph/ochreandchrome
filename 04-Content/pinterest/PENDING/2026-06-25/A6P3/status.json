@@ -3,8 +3,9 @@
   "status": "queued",
   "lastUpdated": "2026-06-24T00:00:00Z",
   "outputFile": "04-Content/pinterest/PENDING/2026-06-25/A6P3/pin-final.png",
-  "destinationStatus": "pending-deploy",
+  "destinationStatus": "live",
   "layout": "full-bleed",
+  "revision": "rewritten 2026-06-24 to quiet-luxury architectural scale + click-optimized copy; consolidated from a mis-dated duplicate back to correct day (06-25)",
   "history": [
     { "status": "queued", "at": "2026-06-24T00:00:00Z" }
   ]
