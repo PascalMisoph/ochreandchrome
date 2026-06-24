@@ -1,0 +1,12 @@
+{
+  "pinId": "A6P3",
+  "status": "queued",
+  "lastUpdated": "2026-06-24T00:00:00Z",
+  "outputFile": "04-Content/pinterest/PENDING/2026-06-27/A6P3/pin-final.png",
+  "destinationStatus": "live",
+  "layout": "full-bleed",
+  "revision": "rewritten 2026-06-24 to quiet-luxury architectural scale after render review",
+  "history": [
+    { "status": "queued", "at": "2026-06-24T00:00:00Z" }
+  ]
+}

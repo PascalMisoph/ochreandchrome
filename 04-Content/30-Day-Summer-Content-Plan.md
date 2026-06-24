@@ -57,23 +57,19 @@ Every pin double-posts to **Ochre & Chrome — All Pins** as secondary. No new b
 
 ---
 
-## §2 — Layout mix rule (the "mal editorial, mal full" fix)
+## §2 — One layout: the "quiet-luxury full-bleed" standard (operator direction 2026-06-24, after A6 render review)
 
-The A1–A5 wave was **100% full-bleed (§7.B)**. This plan deliberately mixes both house layouts so the feed reads like the launch set (which alternated). **Layout is assigned per angle**, so every article auto-yields ~4 editorial + ~4 full-bleed:
+**Decision reversed after seeing the first A6 renders.** The editorial 5-zone (§7.A) layout is **dropped** for this campaign — operator wants to not overdo it / leave it out. **Every pin is full-bleed (§7.B) in the A3P7 "quiet luxury" style**: an architectural room photograph with a single tasteful floating serif headline and the slim domain strip. The reference is our own pin *How to Choose a Jute Rug* (A3P7) — continue that style exactly.
 
-| Angle (per article) | Layout | Why |
-|---|---|---|
-| 1 · listicle hook | **full-bleed §7.B** | hero photo sells the edit |
-| 2 · mistake | **editorial §7.A** | "Stop X" reads as a magazine statement |
-| 3 · how-to | **full-bleed §7.B** | the styled result is the proof |
-| 4 · comparison (X vs Y) | **editorial §7.A** | label + headline frames the contrast |
-| 5 · inspiration / moodboard | **full-bleed §7.B** | pure atmosphere |
-| 6 · trend report | **editorial §7.A** | trend-cover energy (top kicker + serif) |
-| 7 · how-to-choose | **full-bleed §7.B** | single-subject hero |
-| 8 · before/after / fix | **editorial §7.A** | statement headline |
-| 9 · (flagship extra) | full-bleed §7.B | anchor atmosphere |
+Why the first A6 renders missed: a tight console/tabletop **vignette reads as cheap product-staging**, and the floating headline didn't render. The fix is two non-negotiable levers below, baked into every bundle's §5 prompt.
 
-Editorial = §7.A 5-zone (cream top kicker + Playfair headline + subline, photo centre, cream footer wordmark) — exactly P01/P03. Full-bleed = §7.B (edge-to-edge photo, floating lower-third headline, slim domain strip) — exactly the A-series. Both prompts live in [[AI-Prompts]].
+### Lever 1 — Architectural room scale (this is what reads "luxury, dezent")
+Shoot it like a high-end interior magazine spread (*Architectural Digest / Élle Decoration*): an **architectural room with real depth** — foreground, midground, and a background wall or window — **never a tight tabletop still-life**. Low warm **directional daylight raking across the scene** (golden hour), long soft shadows, gentle falloff, an interior that glows. Include **one refined architectural detail** in the background (a plaster niche, a carved-wood panel, an arched reveal, fluted limewash) for quiet richness. **Premium honest materials only:** solid walnut or reclaimed timber, natural lime plaster, washed linen, aged terracotta, handwoven jute, lightly aged brass. Medium-format editorial photography feel, fine grain, controlled shallow depth of field, generous calm negative space in the upper third. Mood: **quiet luxury — edited, restrained, expensive-but-unshowy.** Avoid: catalog product-staging, tight cluttered vignettes, flat or harsh lighting, oversaturation, plastic/fake finishes, obvious CGI, busy collage.
+
+### Lever 2 — The tasteful floating headline (reliable, dezent)
+A **single short editorial headline floats in the lower third, set directly ON the photograph** (no band, no box, no cream zone) over a naturally darker area so it stays legible — **Playfair Display serif, warm cream `#F7F5F0`, elegant and restrained in size**, exactly like A3P7. Then the slim bottom domain strip: brass `#D4AF37` dot + `WWW.OCHREANDCHROME.COM`. No other text. The real messaging (full title, description, keywords) lives in the **Pinterest title + description fields** from the bundle — never crammed onto the image.
+
+This master block (`{QUIET_LUXURY_ELEVATION}`) is appended to the `{IMAGE_BRIEF}` of every §7.B prompt in this campaign. Both layouts still exist in [[AI-Prompts]]; this campaign uses **only** the full-bleed one.
 
 ---
 
@@ -103,7 +99,7 @@ All 11 are **brand-new, summer-seasonal**. Each → journal `/journal/{slug}` + 
 
 ## §4 — The 90-Pin Calendar (2026-06-25 → 07-24, 3/day)
 
-`F` = full-bleed §7.B · `E` = editorial §7.A. Board shorthand: **Afro** = Afrohemian Decor, **Adire** = Authentic Adire, **Brass** = Statement Brass Pendant Lighting, **Neo** = Neo Deco Living Room, **Trends** = 2026 Home Decor Trends. All also → AllPins (secondary).
+**All pins are now full-bleed per §2 — the `E` markers below are superseded; treat every pin as full-bleed quiet-luxury.** Board shorthand: **Afro** = Afrohemian Decor, **Adire** = Authentic Adire, **Brass** = Statement Brass Pendant Lighting, **Neo** = Neo Deco Living Room, **Trends** = 2026 Home Decor Trends. All also → AllPins (secondary).
 
 | Day | Date | Pin 1 | Pin 2 | Pin 3 |
 |---|---|---|---|---|
