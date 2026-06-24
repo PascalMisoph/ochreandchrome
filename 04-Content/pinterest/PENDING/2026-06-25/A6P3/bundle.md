@@ -42,15 +42,15 @@ status: SCHEDULED
 > How to Layer Raffia, Cane & Palm
 
 ## 2. On-image text (full-bleed §7.B)
-- **Floating headline** (lower third, on the photo, no band — short scroll-stopper, 3 words, no commas): `Warm Without the Weight`
+- **Floating headline** (lower third, on the photo, no band — editorial how-to line, generous A-series-scale font): `How to Layer Three Summer Weaves`
 - **Bottom strip:** `www.ochreandchrome.com`
-- *(SEO/keyword phrase "raffia, cane & palm" lives in the Pinterest title + description, NOT on the image — see Lever 3 in plan §2.)*
+- *(Full keyword phrase "raffia, cane & palm" lives in the Pinterest title + description — see Lever 3 in plan §2.)*
 
 ## 3. Pin description (300–500 chars, paste verbatim)
 > Want a room that reads warm and breathes cool at the same time? The trick is three woven materials, not three colours. Let raffia, cane, and palm rhyme without matching — structure from cane, soft warmth from raffia, one graphic note from palm, all sharing a straw-gold family. Keep the room quiet around them: lime-plaster walls, a jute floor, oatmeal linen. Here's how to layer it without tipping into beach-house cliché. #RaffiaDecor #AfrohemianDecor #SummerInteriors
 
 ## 4. Alt text (≤2 sentences)
-> A full-frame editorial photo of a sunlit Afrohemian living corner at golden hour: a caned armchair and an oatmeal-linen sofa around a chunky reclaimed-wood table on a handwoven jute rug, a raffia floor lamp glowing warm, with a flat-woven palm basket and an aged terracotta vessel set in a lime-plaster niche behind. A floating cream serif line reads "Warm Without the Weight" and a slim bottom strip reads www.ochreandchrome.com.
+> A full-frame editorial photo of a sunlit Afrohemian living corner at golden hour: a caned armchair and an oatmeal-linen sofa around a chunky reclaimed-wood table on a handwoven jute rug, a raffia floor lamp glowing warm, with a flat-woven palm basket and an aged terracotta vessel set in a lime-plaster niche behind. A floating cream serif line reads "How to Layer Three Summer Weaves" and a slim bottom strip reads www.ochreandchrome.com.
 
 ## 5. Image generation — runnable §7.B prompt
 ```
@@ -60,7 +60,7 @@ SCENE (architectural room, not a tabletop still-life): A sunlit Afrohemian livin
 
 QUIET-LUXURY ELEVATION: shoot it like a high-end interior magazine spread (Architectural Digest / Élle Decoration) — real depth (foreground, midground, background wall and window), premium honest materials only (solid walnut/reclaimed timber, natural lime plaster, washed linen, aged terracotta, handwoven jute, lightly aged brass), medium-format editorial photography feel, fine grain, controlled shallow depth of field, generous calm negative space in the lower third for the headline. Mood: quiet luxury — edited, restrained, expensive-but-unshowy. Sharp focus on the woven textures. No people, no clutter.
 
-HEADLINE: a single short editorial headline floats in the lower third, set directly ON the photograph (no band, no box) over the naturally darker rug/shadow area so it stays legible — Playfair Display serif, warm cream #F7F5F0, elegant and restrained in size. Typography must be clean and professional: even, correct letter-spacing and kerning, balanced word spacing, no stretched or awkward gaps; set on one or two centred lines, title case. Spell it exactly, with no extra or missing letters: "Warm Without the Weight".
+HEADLINE: a single editorial headline floats in the lower third, set directly ON the photograph (no band, no box) over the naturally darker rug/shadow area so it stays legible — Playfair Display serif, warm cream #F7F5F0, generous editorial size (a confident magazine cover line, one step larger than a caption — match the A-series scale). Typography must be clean and professional: even, correct letter-spacing and kerning, balanced word spacing, no stretched or awkward gaps; set on two centred lines, title case. Spell it exactly, with no extra or missing letters: "How to Layer Three Summer Weaves".
 
 DOMAIN STRIP: slim bottom strip (~7% height) flush to the bottom edge, soft dark-to-transparent gradient scrim, one centred line "www.ochreandchrome.com" in Montserrat all-caps, widely tracked, warm cream #F7F5F0, preceded by a small brushed-brass #D4AF37 dot. No other text anywhere.
 

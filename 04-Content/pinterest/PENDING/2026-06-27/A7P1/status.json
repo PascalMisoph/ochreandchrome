@@ -1,0 +1,11 @@
+{
+  "pinId": "A7P1",
+  "status": "queued",
+  "lastUpdated": "2026-06-24T00:00:00Z",
+  "outputFile": "04-Content/pinterest/PENDING/2026-06-27/A7P1/pin-final.png",
+  "destinationStatus": "live",
+  "layout": "full-bleed",
+  "history": [
+    { "status": "queued", "at": "2026-06-24T00:00:00Z" }
+  ]
+}
